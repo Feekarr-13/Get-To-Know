@@ -1,0 +1,228 @@
+/* ============ SECTION 4: LENGKAPI KOSAKATA ============ */
+
+.section4-screen {
+  min-height: 100vh;
+  background-color: #c7faf5; /* biru muda */
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER KUNING */
+.section4-header {
+  position: relative;
+  background: linear-gradient(135deg, #ffb53f, #ff8800);
+  padding: 44px 16px 80px; /* atas, samping, bawah */
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.section4-header-inner {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section4-title-line1,
+.section4-title-line2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.section4-title-line2 {
+  margin-top: 6px;
+}
+
+.section4-title-highlight {
+  font-weight: 800;
+  color: #000000; /* bagian ini hitam */
+}
+
+/* KARTU PUTIH "Lengkapi Kosakata" */
+.section4-instruction-card {
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+
+  width: calc(100% - 48px); /* margin 24px kiri-kanan */
+  max-width: 420px;
+
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* BODY */
+.section4-body {
+  flex: 1;
+  padding: 90px 16px 110px; /* atas: ruang kartu putih, bawah: footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section4-body-inner {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* PROGRESS KECIL DI ATAS SOAL */
+.section4-progress {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555555;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+/* KALIMAT INDONESIA */
+.section4-question-id {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #1ca2a2; /* hijau kebiruan seperti desain */
+}
+
+/* KOTAK JAWABAN – "We [input] English" */
+.section4-answer-box {
+  width: 100%;
+  background-color: #8ee3e3;
+  border-radius: 18px;
+  border: 3px solid #1ca2a2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+  flex-wrap: wrap;          /* 🔥 biar rapi di HP kecil, bisa turun baris */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+}
+
+/* Teks "We" dan "English" */
+.section4-answer-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #179295;
+}
+
+/* INPUT DI TENGAH */
+.section4-input {
+  width: 120px;
+  max-width: 40vw;          /* 🔥 batasi lebar relatif ke layar */
+  border: none;
+  border-bottom: 3px solid #179295;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px 2px;
+  outline: none;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Placeholder ".........." */
+.section4-input::placeholder {
+  color: #cccccc;
+  letter-spacing: 2px;
+}
+
+/* TOMBOL PERIKSA */
+.section4-check-btn {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 18px;
+  border: none;
+  background-color: #ffb53f;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* =================== RESPONSIVE =================== */
+
+/* HP kecil (<= 360px) */
+@media (max-width: 360px) {
+  .section4-title-line1,
+  .section4-title-line2 {
+    font-size: 18px;
+  }
+
+  .section4-instruction-card {
+    font-size: 16px;
+    padding: 14px 18px;
+  }
+
+  .section4-question-id {
+    font-size: 22px;
+  }
+
+  .section4-answer-text {
+    font-size: 16px;
+  }
+
+  .section4-input {
+    font-size: 16px;
+    width: 90px;
+  }
+
+  .section4-check-btn {
+    font-size: 16px;
+  }
+}
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+  .section4-header-inner,
+  .section4-body-inner {
+    max-width: 480px;
+  }
+
+  .section4-instruction-card {
+    max-width: 480px;
+  }
+
+  .section4-title-line1,
+  .section4-title-line2 {
+    font-size: 22px;
+  }
+
+  .section4-question-id {
+    font-size: 28px;
+  }
+
+  .section4-answer-text {
+    font-size: 19px;
+  }
+
+  .section4-input {
+    font-size: 19px;
+    width: 140px;
+  }
+}
+
+/* Laptop lebar (>= 1024px) – biar tetap center dan nggak kepanjangan */
+@media (min-width: 1024px) {
+  .section4-header-inner,
+  .section4-body-inner {
+    max-width: 520px;
+  }
+
+  .section4-instruction-card {
+    max-width: 520px;
+  }
+}

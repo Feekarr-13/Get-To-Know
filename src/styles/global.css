@@ -1,0 +1,130 @@
+/* ===================================================
+   GLOBAL STYLE - berlaku untuk semua halaman
+   =================================================== */
+
+/* Import font dari Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* Reset dasar biar tampilan antar browser konsisten */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pengaturan dasar halaman */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #c7faf5; /* warna dasar biru muda */
+  color: #000;
+  overflow-x: hidden; /* hilangkan scroll horizontal */
+}
+
+/* Elemen root React */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================================================
+   REUSABLE COMPONENT (bisa dipakai di mana pun)
+   =================================================== */
+
+/* Tombol umum */
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Footer umum */
+.menu-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #1ca2a2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tombol home di footer */
+.menu-home-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.menu-home-btn svg {
+  width: 30px;
+  height: 30px;
+  stroke: #169494;
+}
+
+/* ===================================================
+   MEDIA QUERY GLOBAL (Responsif)
+   =================================================== */
+
+/* Untuk HP kecil (≤ 360px) */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+
+  .menu-footer {
+    height: 70px;
+  }
+
+  .menu-home-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .menu-home-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Untuk tablet dan layar besar (≥ 768px) */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  .menu-footer {
+    height: 90px;
+  }
+
+  .menu-home-btn {
+    width: 70px;
+    height: 70px;
+  }
+
+  .menu-home-btn svg {
+    width: 34px;
+    height: 34px;
+  }
+}

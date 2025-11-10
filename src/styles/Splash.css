@@ -1,0 +1,81 @@
+/* ============ SPLASH SCREEN ============ */
+
+.splash-screen {
+  min-height: 100vh;
+  background-color: #8ee3e3; /* warna biru muda lembut */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* Konten di tengah */
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* Logo */
+.splash-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 16px;
+  animation: zoomIn 1.5s ease-out;
+}
+
+/* Teks */
+.splash-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #000000;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 1.8s ease-out;
+}
+
+/* Animasi lembut */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+  .splash-logo {
+    width: 130px;
+  }
+
+  .splash-title {
+    font-size: 24px;
+  }
+}

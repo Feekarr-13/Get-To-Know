@@ -1,0 +1,284 @@
+/* ============ SECTION 2: ARRANGE SENTENCE ============ */
+
+.section2-screen {
+  min-height: 100vh;
+  background-color: #c7faf5; /* biru muda */
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER KUNING */
+.section2-header {
+  position: relative;
+ background: linear-gradient(135deg, #ffb53f, #ff8800);
+  padding: 44px 16px 80px; /* sedikit lebih tebal */
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.section2-header-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* semua teks header dasar putih */
+.section2-title-line1,
+.section2-title-line2 {
+  margin: 0;
+  font-size: 22px;      /* 🔥 lebih besar dari sebelumnya */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* baris kedua punya sedikit jarak atas */
+.section2-title-line2 {
+  margin-top: 6px;
+}
+
+/* bagian "a perfect sentence" hitam & tebal */
+.section2-title-highlight {
+  font-weight: 800;
+  color: #000000;       /* 🔥 highlight hitam */
+}
+
+/* KARTU PUTIH INSTRUKSI */
+.section2-instruction {
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+
+  width: calc(100% - 32px);  /* responsif: margin 16px kiri-kanan */
+  max-width: 420px;
+
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-size: 18px;      /* 🔥 dibesarkan */
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* BODY */
+.section2-body {
+  flex: 1;
+  padding: 90px 16px 110px; /* atas: ruang kartu putih, bawah: footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section2-body-inner {
+  width: 100%;
+  max-width: 420px; /* kolom tengah */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* KALIMAT SOAL */
+.section2-question {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 26px;      /* 🔥 lebih besar */
+  font-weight: 800;
+  color: #000000;
+}
+
+/* AREA KATA TERPILIH + GARIS */
+.section2-selected-area {
+  min-height: 40px;
+  display: flex;
+  flex-wrap: wrap;        /* 🔥 ini kunci agar kata berpindah ke baris baru */
+  gap: 8px;               /* jarak antar kata */
+  align-items: center;
+  justify-content: flex-start; /* biar mulai dari kiri */
+  margin-bottom: 8px;
+  padding: 4px 0;         /* sedikit ruang biar rapi */
+}
+
+
+/* GARIS JAWABAN */
+.section2-line {
+  width: 100%;
+  border-bottom: 3px solid #179295;
+}
+
+.section2-line-second {
+  margin-top: 8px;
+}
+
+
+/* WORD PILLS */
+.word-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;   /* sedikit lebih tebal & lebar */
+  border-radius: 999px;
+  background-color: #1ca2a2;
+  color: #ffffff;
+  font-size: 18px;      /* 🔥 dibesarkan */
+  font-weight: 700;
+  box-shadow:
+    0 0 0 3px #90f4ee,
+    0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.word-pill-selected {
+  background-color: #a5e9ea;
+  color: #179295;
+  box-shadow:
+    0 0 0 3px #d6ffff,
+    0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.word-pill-empty {
+  min-width: 80px;
+  height: 44px;
+  background-color: #bfeeee;
+  box-shadow:
+    0 0 0 3px #bfeeee,
+    0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* BANK KATA DI BAWAH */
+.section2-word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+/* TOMBOL NEXT */
+.section2-next-btn {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 20px;
+  border: none;
+ background: linear-gradient(135deg, #ffb53f, #ff8800);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* AREA PILIHAN TERPILIH DI ATAS GARIS */
+.section2-selected-wrapper {
+  width: 100%;
+  max-width: 420px;     /* sama seperti body-inner kalau mau */
+  margin: 0 auto 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* tinggi total untuk area + garis, supaya layout nggak geser */
+  height: 110px;        /* boleh kamu ubah 100–130 sesuai selera */
+}
+
+
+/* INI YANG PENTING */
+.section2-selected-area {
+  /* RUANG UNTUK KATA2 SAJA (di atas garis) */
+  flex: 1;                   /* isi tinggi di atas garis */
+  display: flex;
+  flex-wrap: wrap;           /* 🔥 kunci: kalau penuh, pindah ke baris kedua */
+  gap: 8px;
+  align-items: center;
+  justify-content: center;   /* atau flex-start kalau mau rata kiri */
+  padding: 4px 0;
+  box-sizing: border-box;
+}
+
+/* pill umum */
+.word-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: #1ca2a2;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 0 0 3px #90f4ee, 0 6px 12px rgba(0, 0, 0, 0.25);
+  min-width: 70px;
+  min-height: 40px;
+  border: none;
+}
+
+/* pill yang sudah kepilih di area atas */
+.word-pill-selected {
+  background-color: #9ee5ea;
+  color: #179295;
+  box-shadow: 0 0 0 3px #d4fbff, 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* pill di bank bawah yang sudah digunakan (jadi kosong) */
+.word-pill-empty {
+  background-color: #bfeeee;
+  box-shadow: 0 0 0 3px #bfeeee, 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: transparent; /* teks disembunyikan */
+}
+
+/* =================== RESPONSIVE BREAKPOINTS =================== */
+
+/* HP kecil (<= 360px) */
+@media (max-width: 360px) {
+  .section2-title-line1,
+  .section2-title-line2 {
+    font-size: 18px;
+  }
+
+  .section2-instruction {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+
+  .section2-question {
+    font-size: 22px;
+  }
+
+  .word-pill {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  .section2-next-btn {
+    font-size: 16px;
+  }
+}
+
+/* Tablet & desktop (>= 768px) */
+@media (min-width: 768px) {
+  .section2-header-inner {
+    max-width: 520px;
+  }
+
+  .section2-title-line1,
+  .section2-title-line2 {
+    font-size: 24px;
+  }
+
+  .section2-question {
+    font-size: 28px;
+  }
+
+  .section2-body-inner {
+    max-width: 480px;
+  }
+
+  .section2-instruction {
+    max-width: 480px;
+    font-size: 19px;
+  }
+
+  .word-pill {
+    font-size: 19px;
+    padding: 10px 24px;
+  }
+}

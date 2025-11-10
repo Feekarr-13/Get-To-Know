@@ -1,0 +1,268 @@
+/* ============ SECTION 3: MULTIPLE CHOICE ============ */
+
+.section3-screen {
+  min-height: 100vh;
+  background-color: #c7faf5; /* biru muda */
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER KUNING */
+.section3-header {
+  position: relative;
+  background: linear-gradient(135deg, #ffb53f, #ff8800);
+  padding: 48px 16px 90px; /* atas, samping, bawah */
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.section3-header-inner {
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: left;
+  color: #ffffff;
+}
+
+.section3-title-main {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.section3-title-sub {
+  margin: 6px 0 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #000000; /* bagian bahasa Indonesia hitam tebal */
+}
+
+/* KARTU PUTIH "INTERPREET..." */
+.section3-instruction-card {
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+
+  width: calc(100% - 48px); /* margin 24px kiri-kanan */
+  max-width: 360px;
+
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* BODY */
+.section3-body {
+  flex: 1;
+  padding: 60px 16px 110px; /* atas kosong untuk kartu putih, bawah untuk footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section3-body-inner {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BLOK PERTANYAAN */
+.section3-question-block {
+  margin-bottom: 28px;
+}
+
+.section3-question-en {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1ca2a2;
+}
+
+.section3-question-number {
+  color: #1ca2a2;
+}
+
+.section3-question-italic {
+  font-style: italic;
+}
+
+.section3-question-id {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1c6666;
+}
+
+/* PILIHAN JAWABAN */
+.section3-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.section3-option-btn {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 999px;
+  border: none;
+  background-color: #1ca2a2;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* TOMBOL PERIKSA */
+.section3-check-btn {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 18px;
+  border: none;
+ background: linear-gradient(135deg, #ffb53f, #ff8800);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* =================== RESPONSIVE =================== */
+
+/* HP kecil (<= 360px) */
+@media (max-width: 360px) {
+  .section3-title-main {
+    font-size: 20px;
+  }
+
+  .section3-title-sub {
+    font-size: 18px;
+  }
+
+  .section3-instruction-card {
+    font-size: 15px;
+    padding: 14px 18px;
+  }
+
+  .section3-question-en {
+    font-size: 16px;
+  }
+
+  .section3-option-btn {
+    font-size: 16px;
+    padding: 14px 18px;
+  }
+
+  .section3-check-btn {
+    font-size: 16px;
+  }
+}
+
+/* Tablet & desktop (>= 768px) */
+@media (min-width: 768px) {
+  .section3-header-inner,
+  .section3-body-inner {
+    max-width: 420px;
+  }
+
+  .section3-instruction-card {
+    max-width: 420px;
+  }
+
+  .section3-title-main {
+    font-size: 24px;
+  }
+
+  .section3-title-sub {
+    font-size: 22px;
+  }
+
+  .section3-question-en {
+    font-size: 20px;
+  }
+.section3-option-btn.section3-option-correct {
+  background-color: #b8f5c3;
+  color: #0c6e2f;
+  border: 3px solid #22c55e;
+}
+
+.section3-option-btn.section3-option-wrong {
+  background-color: #f8b2b2;
+  color: #8b0000;
+  border: 3px solid #ef4444;
+}
+.section3-progress {
+  width: 100%;
+  margin: 12px 0;
+  text-align: center; /* 🔥 pusatkan teks */
+  font-size: 16px;
+  font-weight: 600;
+  color: #1ca2a2;
+  display: block; /* pastikan full baris */
+}
+
+/* ======= PILIHAN JAWABAN ======= */
+
+  /* DEFAULT TOMBOL PILIHAN */
+    .section3-option-btn {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    border: 2px solid transparent;   /* ini default */
+    background-color: #1ca2a2;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    }
+
+    /* HOVER (opsional) */
+    .section3-option-btn:hover {
+    transform: scale(1.02);
+    }
+
+    /* 🔥 SAAT DIPILIH (sebelum klik Periksa)
+    NOTE: pakai selector GABUNG supaya lebih kuat */
+    .section3-option-btn.section3-option-selected {
+    background-color: #ffffff;
+    color: #179295;
+    border: 3px solid #179295;         /* 👉 garis tepi muncul di sini */
+    box-shadow:
+        0 0 0 4px #a9f3ee,
+        0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    }
+
+
+
+    /* Setelah Periksa – JAWABAN BENAR (hijau) */
+    .section3-option-correct {
+    background-color: #b8f5c3;
+    color: #0c6e2f;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px #bbf7d0, 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    }
+
+    /* Setelah Periksa – JAWABAN SALAH (merah) */
+    .section3-option-wrong {
+    background-color: #f8b2b2;
+    color: #8b0000;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px #fecaca, 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    }
+
+
+}

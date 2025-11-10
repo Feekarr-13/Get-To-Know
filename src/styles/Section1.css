@@ -1,0 +1,322 @@
+/* ============ SECTION 1: DAILY ACTIVITIES (RESPONSIVE) ============ */
+
+.section1-screen {
+  min-height: 100vh;
+  background-color: #c7faf5;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER KUNING */
+.section1-header {
+  position: relative;
+ background: linear-gradient(135deg, #ffb53f, #ff8800);
+  padding: 40px 16px 72px; /* kiri kanan 16px biar ikut lebar layar */
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.section1-header-inner {
+  max-width: 600px; /* di laptop boleh agak lebar */
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: left;
+}
+
+.section1-title-en {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.section1-title-id {
+  margin: 8px 0 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: #000000;
+}
+
+/* KOTAK PUTIH INSTRUKSI – PANJANG & RESPONSIVE */
+.section1-instruction {
+  position: absolute;
+  left: 50%;
+  bottom: -32px;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+
+  width: calc(100% - 32px); /* 16px margin kiri-kanan di semua device */
+  max-width: 420px; /* di tablet / laptop tidak terlalu panjang */
+
+  padding: 14px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* BODY – konten di bawah header */
+.section1-body {
+  flex: 1;
+  padding: 80px 16px 110px; /* 80px untuk ruang kartu putih */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* GRID DIBATASI KOLOM TENGAH, TAPI IKUT LAYAR */
+.section1-grid {
+  width: 100%;
+  max-width: 420px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
+  row-gap: 16px;
+  margin-bottom: 32px;
+}
+
+.section1-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* TOMBOL PASANGAN (default) */
+.section1-pair {
+  width: 100%;
+  padding: 12px 8px;
+  border-radius: 18px;
+  border: none;
+  background-color: #1ca2a2;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 3px #90f4ee,
+    0 6px 12px rgba(0, 0, 0, 0.25);
+}
+.section1-progress {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1ca2a2;
+}
+
+.section1-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ====== STATUS LOGIKA: BENAR / SALAH ====== */
+
+/* TOMBOL PASANGAN (default) */
+.section1-pair {
+  width: 100%;
+  padding: 12px 8px;
+  border-radius: 18px;
+  border: none;
+  background-color: #2ba5a5;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 3px #5ac6bf,
+    0 6px 12px rgba(0, 0, 0, 0.25);
+
+  /* 🔽 tambahan biar ukurannya seragam */
+  min-height: 56px;              /* boleh kamu ubah 50–60px sesuai selera */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+/* tombol pasangan: kondisi BENAR */
+.section1-pair.pair-correct {
+  border: 3px solid #22c55e; /* hijau */
+  background-color: #1cca94;
+  color: #ffffff;
+  font-weight: 800;
+  transform: scale(1.05); /* sedikit membesar biar terasa terpilih */
+  transition: all 0.25s ease-in-out;
+  box-shadow:
+    0 0 0 3px #bbf7d0,
+    0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* tombol pasangan: kondisi SALAH (sementara) */
+.section1-pair.pair-wrong {
+  border: 3px solid #ef4444; /* merah */
+  background-color: #dc6b6b;
+  box-shadow:
+    0 0 0 3px #fecaca,
+    0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* kalau sudah benar (disabled) */
+.section1-pair:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+/* TOMBOL NEXT */
+.section1-next-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.section1-next {
+  padding: 10px 36px;
+  border-radius: 18px;
+  border: none; background: linear-gradient(135deg, #ffb53f, #ff8800);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ========= POPUP BENAR / SALAH ========= */
+
+.section1-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.section1-popup {
+  background-color: #ffffff;
+  padding: 20px 24px;
+  border-radius: 18px;
+  text-align: center;
+  max-width: 260px;
+  width: 80%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.popup-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.popup-icon-success {
+  background-color: #22c55e;
+}
+
+.popup-icon-error {
+  background-color: #ef4444;
+}
+
+.popup-text {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.popup-close-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: none;
+  background-color: #1ca2a2;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ========== FOOTER & HOME BTN (kalau belum di global.css) ========== */
+
+.menu-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #1ca2a2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.menu-home-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.menu-home-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* =================== RESPONSIVE BREAKPOINTS =================== */
+
+/* HP kecil (<= 360px) */
+@media (max-width: 360px) {
+  .section1-title-en {
+    font-size: 20px;
+  }
+
+  .section1-title-id {
+    font-size: 18px;
+  }
+
+  .section1-instruction {
+    font-size: 16px;
+  }
+
+  .section1-pair {
+    font-size: 14px;
+  }
+
+  .section1-next {
+    font-size: 16px;
+  }
+}
+
+/* Tablet & desktop (>= 768px) */
+@media (min-width: 768px) {
+  .section1-header-inner,
+  .section1-grid {
+    max-width: 480px;
+  }
+
+  .section1-title-en {
+    font-size: 26px;
+  }
+
+  .section1-title-id {
+    font-size: 24px;
+  }
+
+  .section1-question-en {
+    font-size: 20px;
+  }
+}

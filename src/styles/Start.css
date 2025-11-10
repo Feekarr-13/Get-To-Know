@@ -1,0 +1,208 @@
+/* Latar & layout utama */
+/* === START SCREEN STYLING === */
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #a2f3e6, #9bd0ff);
+}
+
+/* Tambahkan bentuk abstrak lembut di background */
+.start-screen::before,
+.start-screen::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(90px);
+  z-index: 0;
+}
+.start-screen::before {
+  width: 400px;
+  height: 400px;
+  background: #00bcd4;
+  top: -100px;
+  left: -100px;
+}
+.start-screen::after {
+  width: 500px;
+  height: 500px;
+  background: #ffb53f;
+  bottom: -150px;
+  right: -150px;
+}
+
+/* Konten utama */
+.start-content {
+  position: relative;
+  z-index: 1;
+  color: #083b53;
+}
+
+.start-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.start-title .highlight {
+  color: #169494;
+}
+
+.start-logo {
+  width: 150px;
+  height: auto;
+  margin: 20px 0;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animasi logo biar ada efek mengambang */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.start-tagline {
+  max-width: 320px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #04686b;
+  line-height: 1.5;
+}
+
+.start-subtitle {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #169494;
+}
+
+/* Tombol Start */
+.start-button {
+  margin-top: 40px;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #ffb53f, #ff8800);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.start-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff8800, #ffb53f);
+}
+
+/* Konten tengah */
+.start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 120px;
+  text-align: center;
+}
+
+/* Teks atas */
+.start-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+}
+
+.highlight {
+  color: #179295;
+  font-weight: 800;
+}
+
+/* Logo */
+.start-logo {
+  width: 180px;
+  height: auto;
+  margin: 12px 0;
+}
+.start-tagline {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 8px;
+  margin-bottom: 4px; /* 🔥 tambahkan baris ini, kurangi jarak ke bawah */
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
+  opacity: 0.9;
+  max-width: 320px;
+}
+
+.start-subtitle {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffb53f;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  margin-top: 0; /* 🔥 ubah jadi 0 supaya jaraknya mepet */
+}
+
+/* Tombol Start */
+.start-button {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 340px;
+  padding: 14px 0;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  background-color: #179295;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.start-button:active {
+  transform: translate(-50%, 1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+  .start-title {
+    font-size: 20px;
+  }
+
+  .start-subtitle {
+    font-size: 24px;
+  }
+
+  .start-logo {
+    width: 150px;
+  }
+
+  .start-tagline {
+    font-size: 14px;
+  }
+
+  .start-button {
+    font-size: 16px;
+  }
+}

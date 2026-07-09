@@ -5,45 +5,107 @@ import "../styles/Section1.css";
 
 /* DATA DASAR – TIDAK DIUBAH, HANYA DITAMBAH */
 const BASE_LEFT_WORDS = [
+  // ================= DAILY ACTIVITIES =================
   { id: "wake", text: "Wake Up", audioSrc: "/audio/wake up.mp3" },
   { id: "bath", text: "Take a bath", audioSrc: "/audio/bath.mp3" },
   { id: "breakfast", text: "Have breakfast", audioSrc: "/audio/breakfast.mp3" },
-  { id: "school", text: "Go to school", audioSrc: "/audio/school.mp3" },
+  { id: "goschool", text: "Go to school", audioSrc: "/audio/school.mp3" },
   { id: "study", text: "Study", audioSrc: "/audio/study.mp3" },
 
-  // 🔽 kata-kata baru + audio
   { id: "homework", text: "Homework", audioSrc: "/audio/homework.mp3" },
   { id: "play", text: "Play", audioSrc: "/audio/play.mp3" },
   { id: "lunch", text: "Lunch", audioSrc: "/audio/lunch.mp3" },
   { id: "watchtv", text: "Watch TV", audioSrc: "/audio/watch tv.mp3" },
   { id: "sleep", text: "Sleep", audioSrc: "/audio/sleep.mp3" },
 
+  // ================= SCHOOL =================
+  { id: "school", text: "School", audioSrc: "/audio/school-word.mp3" },
+  { id: "teacher", text: "Teacher", audioSrc: "/audio/teacher.mp3" },
+  { id: "student", text: "Student", audioSrc: "/audio/student.mp3" },
+  { id: "classroom", text: "Classroom", audioSrc: "/audio/classroom.mp3" },
+  { id: "library", text: "Library", audioSrc: "/audio/library.mp3" },
+
   { id: "canteen", text: "Canteen", audioSrc: "/audio/canteen.mp3" },
   { id: "playground", text: "Playground", audioSrc: "/audio/playground.mp3" },
   { id: "english", text: "English", audioSrc: "/audio/english.mp3" },
   { id: "math", text: "Math", audioSrc: "/audio/math.mp3" },
-  { id: "Art", text: "Art", audioSrc: "/audio/seni.mp3" },
+  { id: "science", text: "Science", audioSrc: "/audio/science.mp3" },
+
+  // ================= WEATHER =================
+  { id: "sunny", text: "Sunny", audioSrc: "/audio/sunny.mp3" },
+  { id: "cloudy", text: "Cloudy", audioSrc: "/audio/cloudy.mp3" },
+  { id: "rainy", text: "Rainy", audioSrc: "/audio/rainy.mp3" },
+  { id: "windy", text: "Windy", audioSrc: "/audio/windy.mp3" },
+  { id: "stormy", text: "Stormy", audioSrc: "/audio/stormy.mp3" },
+
+  { id: "hot", text: "Hot", audioSrc: "/audio/hot.mp3" },
+  { id: "cold", text: "Cold", audioSrc: "/audio/cold.mp3" },
+  { id: "dryseason", text: "Dry season", audioSrc: "/audio/dry season.mp3" },
+  { id: "rainyseason", text: "Rainy season", audioSrc: "/audio/rainy season.mp3" },
+
+  // ================= FEELINGS =================
+  { id: "happy", text: "Happy", audioSrc: "/audio/happy.mp3" },
+  { id: "sad", text: "Sad", audioSrc: "/audio/sad.mp3" },
+  { id: "angry", text: "Angry", audioSrc: "/audio/angry.mp3" },
+  { id: "tired", text: "Tired", audioSrc: "/audio/tired.mp3" },
+  { id: "sick", text: "Sick", audioSrc: "/audio/sick.mp3" },
+
+  { id: "hungry", text: "Hungry", audioSrc: "/audio/hungry.mp3" },
+  { id: "thirsty", text: "Thirsty", audioSrc: "/audio/thirsty.mp3" },
+  { id: "scared", text: "Scared", audioSrc: "/audio/scared.mp3" },
+  { id: "excited", text: "Excited", audioSrc: "/audio/excited.mp3" },
 ];
 
 const BASE_RIGHT_WORDS = [
-  { id: "wake", text: "Bangun Tidur" },
+  // ================= DAILY ACTIVITIES =================
+  { id: "wake", text: "Bangun tidur" },
   { id: "bath", text: "Mandi" },
   { id: "breakfast", text: "Sarapan" },
-  { id: "school", text: "Pergi Sekolah" },
+  { id: "goschool", text: "Pergi ke sekolah" },
   { id: "study", text: "Belajar" },
 
-  // 🔽 pasangan artinya
   { id: "homework", text: "Pekerjaan Rumah" },
   { id: "play", text: "Bermain" },
   { id: "lunch", text: "Makan siang" },
   { id: "watchtv", text: "Menonton TV" },
   { id: "sleep", text: "Tidur" },
 
+  // ================= SCHOOL =================
+  { id: "school", text: "Sekolah" },
+  { id: "teacher", text: "Guru" },
+  { id: "student", text: "Siswa" },
+  { id: "classroom", text: "Ruang kelas" },
+  { id: "library", text: "Perpustakaan" },
+
   { id: "canteen", text: "Kantin" },
   { id: "playground", text: "Halaman bermain" },
   { id: "english", text: "Bahasa Inggris" },
   { id: "math", text: "Matematika" },
-  { id: "Art", text: "Seni" },
+  { id: "science", text: "Ilmu Pengetahuan Alam" },
+
+  // ================= WEATHER =================
+  { id: "sunny", text: "Cerah" },
+  { id: "cloudy", text: "Berawan" },
+  { id: "rainy", text: "Hujan" },
+  { id: "windy", text: "Berangin" },
+  { id: "stormy", text: "Badai" },
+
+  { id: "hot", text: "Panas" },
+  { id: "cold", text: "Dingin" },
+  { id: "dryseason", text: "Musim kemarau" },
+  { id: "rainyseason", text: "Musim hujan" },
+
+  // ================= FEELINGS =================
+  { id: "happy", text: "Senang" },
+  { id: "sad", text: "Sedih" },
+  { id: "angry", text: "Marah" },
+  { id: "tired", text: "Lelah" },
+  { id: "sick", text: "Sakit" },
+
+  { id: "hungry", text: "Lapar" },
+  { id: "thirsty", text: "Haus" },
+  { id: "scared", text: "Takut" },
+  { id: "excited", text: "Bersemangat" },
 ];
 
 /* FUNGSI UNTUK MENGACAK ARRAY (Fisher–Yates shuffle) */

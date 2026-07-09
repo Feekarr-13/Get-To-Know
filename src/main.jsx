@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
-import "./styles/global.css"; // atau global.css kalau kamu pakai itu
+
+import { AudioProvider } from "./context/AudioProvider";
+
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+    <AudioProvider>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </AudioProvider>
+  </BrowserRouter>
 );

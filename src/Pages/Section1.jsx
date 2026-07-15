@@ -1,7 +1,161 @@
 // src/Pages/Section1.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAudio } from "../hooks/useAudio";
 import "../styles/Section1.css";
+import { FaHome } from "react-icons/fa";
+
+/* ==========================================================
+        THEME SETIAP HALAMAN
+========================================================== */
+
+const PAGE_THEMES = [
+    {
+      title:"Daily Activities",
+      subtitle:"(Kegiatan Sehari-hari)",
+
+      background:"/background/slide1.png",
+
+      mascot:"/mascot/mascot.png",
+
+      board:"orange",
+
+      instructionColor:"#FFF6D7",
+
+      sceneIcon:"☀️",
+
+      progressColor:"#2EB7A7",
+
+      instruction:"Ketuk pasangan yang cocok"
+  },
+
+  {
+      title:"Daily Activities",
+      subtitle:"(Kegiatan Sehari-hari)",
+
+      background:"/background/slide2.png",
+
+      mascot:"/mascot/mascot.png",
+
+      board:"orange",
+
+      instructionColor:"#FFF6D7",
+
+      sceneIcon:"🛁",
+
+      progressColor:"#2EB7A7",
+
+      instruction:"Ketuk pasangan yang cocok"
+  },
+
+  {
+      title:"Daily Activities",
+      subtitle:"(Kegiatan Sehari-hari)",
+
+      background:"/background/slide3.png",
+
+      mascot:"/mascot/mascot.png",
+
+      board:"orange",
+
+      instructionColor:"#FFF6D7",
+
+      sceneIcon:"🍽️",
+
+      progressColor:"#2EB7A7",
+
+      instruction:"Ketuk pasangan yang cocok"
+  },
+
+  {
+      title:"Daily Activities",
+      subtitle:"(Kegiatan Sehari-hari)",
+
+      background:"/background/slide4.png",
+
+      mascot:"/mascot/mascot.png",
+
+      board:"green",
+
+      instructionColor:"#EFFFF5",
+
+      sceneIcon:"🏫",
+
+      progressColor:"#2EB7A7",
+
+      instruction:"Ketuk pasangan yang cocok"
+  },
+
+  {
+      title:"Daily Activities",
+
+      subtitle:"(Kegiatan Sehari-hari)",
+
+      background:"/background/slide5.png",
+
+      mascot:"/mascot/mascot.png",
+
+      board:"green",
+
+      instructionColor:"#EFFFF5",
+
+      sceneIcon:"⚽",
+
+      progressColor:"#2EB7A7",
+
+      instruction:"Ketuk pasangan yang cocok"
+  },
+
+  {
+      title:"Daily Activities",
+
+      subtitle:"(Kegiatan Sehari-hari)",
+
+      background:"/background/slide6.png",
+
+      mascot:"/mascot/mascot.png",
+
+      board:"orange",
+
+      instructionColor:"#FFF6D7",
+
+      sceneIcon:"📺",
+
+      progressColor:"#2EB7A7",
+
+      instruction:"Ketuk pasangan yang cocok"
+  },
+
+  {
+    title: "Daily Activities",
+    subtitle: "(Kegiatan Sehari-hari)",
+
+    background: "/background/slide7.png",
+
+    mascot: "/mascot/study.png",
+
+    color: "blue",
+
+    instruction: "Ketuk pasangan yang cocok",
+
+    scene: "Study",
+  },
+
+  {
+    title: "Daily Activities",
+    subtitle: "(Kegiatan Sehari-hari)",
+
+    background: "/background/slide8.png",
+
+    mascot: "/mascot/sleep.png",
+
+    color: "purple",
+
+    instruction: "Ketuk pasangan yang cocok",
+
+    scene: "Night",
+  },
+];
 
 /* DATA DASAR – TIDAK DIUBAH, HANYA DITAMBAH */
 const BASE_LEFT_WORDS = [
@@ -118,11 +272,15 @@ function shuffleArray(array) {
   return arr;
 }
 
+
 const PAIRS_PER_PAGE = 5;
 
 export default function Section1() {
   const navigate = useNavigate();
-
+  const { toggleMute, isMuted } = useAudio();
+/* ==========================================================
+        THEME HALAMAN AKTIF
+========================================================== */
   // 🔹 Bikin "slide" dari data dasar: tiap slide berisi 5 id yang sama di kiri & kanan
   const [slides] = useState(() => {
     const allIds = BASE_LEFT_WORDS.map((w) => w.id); // ['wake','bath',...]
@@ -149,10 +307,14 @@ export default function Section1() {
 
   const [currentPage, setCurrentPage] = useState(0); // halaman aktif
   const [selectedLeft, setSelectedLeft] = useState(null);
+  const currentTheme = PAGE_THEMES[currentPage];
   const [selectedRight, setSelectedRight] = useState(null);
   const [matchedIds, setMatchedIds] = useState([]); // pair yang benar di halaman ini
   const [wrongPair, setWrongPair] = useState(null); // {leftId, rightId}
   const [popup, setPopup] = useState(null); // {type: "success" | "error"}
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
   const currentSlide = slides[currentPage];
   const leftWords = currentSlide.left;
@@ -164,18 +326,28 @@ export default function Section1() {
   const goHome = () => navigate("/menu");
 
   // ketika klik Next / Finish
-  const handleNext = () => {
-    if (!isLastPage) {
-      setCurrentPage((prev) => prev + 1);
-      setSelectedLeft(null);
-      setSelectedRight(null);
-      setMatchedIds([]);
-      setWrongPair(null);
-      setPopup(null);
-    } else {
-      navigate("/menu");
-    }
-  };
+ const handleNext = () => {
+  console.log("HANDLE NEXT");
+
+  if (!isLastPage) {
+    setCurrentPage((prev) => prev + 1);
+    setSelectedLeft(null);
+    setSelectedRight(null);
+    setMatchedIds([]);
+    setWrongPair(null);
+    setPopup(null);
+  } else {
+
+    console.log("SHOW RESULT");
+
+    playFinishAudio(); // 🔊 YEAY
+
+    setTimeout(() => {
+      setShowResult(true);
+    }, 400);
+
+  }
+};
 
   // 🔊 fungsi play audio kata
   const playAudio = (src) => {
@@ -198,7 +370,16 @@ export default function Section1() {
       console.warn("Tidak bisa memutar SFX:", err);
     });
   };
+  // 🔊 Audio ketika selesai semua soal
+  const playFinishAudio = () => {
+    const audio = new Audio("/audio/yeay.mp3");
 
+    audio.volume = 1;
+
+    audio.play().catch((err) => {
+      console.warn("Gagal memutar audio finish:", err);
+    });
+  };
   // fungsi umum ketika tombol diklik
   const handleSelect = (side, id) => {
     // kalau sudah benar, jangan bisa dipilih lagi
@@ -220,6 +401,8 @@ export default function Section1() {
       if (newLeft === newRight) {
         // ✅ benar
         setMatchedIds((prev) => [...prev, newLeft]);
+
+        setCorrectCount((prev) => prev + 1);
         setWrongPair(null);
         setPopup({ type: "success" });
         playSfx("success"); // 🔊 SFX jawaban benar
@@ -228,6 +411,7 @@ export default function Section1() {
         setWrongPair({ leftId: newLeft, rightId: newRight });
         setPopup({ type: "error" });
         playSfx("error"); // 🔊 SFX jawaban salah
+        setWrongCount((prev) => prev + 1);
 
         // hapus highlight merah setelah 1 detik
         setTimeout(() => {
@@ -240,20 +424,96 @@ export default function Section1() {
       setSelectedRight(null);
     }
   };
+  // ================= RESULT SCREEN =================
 
+  const totalQuestion = slides.length * 5;
+
+  const score = Math.round(
+    (correctCount / totalQuestion) * 100
+  );
   return (
     <div className="section1-screen">
-      {/* HEADER KUNING */}
-      <header className="section1-header">
-        <div className="section1-header-inner">
-          <p className="section1-title-en">Daily Activities</p>
-          <p className="section1-title-id">(Kegiatan Sehari-hari)</p>
+      <header
+        className="section1-header"
+        style={{
+          backgroundImage: `url(${currentTheme.background})`,
+        }}
+      >
+
+        {/* Tombol Back */}
+        <button
+          className="back-btn"
+          onClick={() => navigate("/menu")}
+        >
+          ←
+        </button>
+
+        {/* Tombol Musik */}
+        <button
+          className="music-btn"
+          onClick={toggleMute}
+        >
+          {isMuted ? "🔇" : "🔊"}
+        </button>
+
+        {/* Judul */}
+        <div
+          className={`header-title-box ${currentTheme.board}`}>
+
+          <h1>{currentTheme.title}</h1>
+
+          <p>{currentTheme.subtitle}</p>
+
         </div>
 
-        {/* KARTU PUTIH INSTRUKSI */}
-        <div className="section1-instruction">Ketuk Pasangan Yang Cocok</div>
-      </header>
+        {/* Maskot */}
+        <img
+          src={currentTheme.mascot}
+          alt="Mascot"
+          className="header-mascot"
+        />
 
+      </header>
+      <div className="page-indicator">
+
+      {PAGE_THEMES.map((_,index)=>(
+
+      <span
+
+      key={index}
+
+      className={
+      index===currentPage
+      ?
+
+      "active"
+
+      :
+
+      ""
+
+      }
+
+      />
+
+      ))}
+
+      </div>
+      <div
+        className="instruction-card"
+        style={{
+        background:currentTheme.instructionColor
+        }}
+        >
+          <span>
+
+        {currentTheme.sceneIcon}
+
+        </span>
+
+    ⭐ {currentTheme.instruction} ⭐
+
+</div>
       {/* ISI */}
       <main className="section1-body">
         {/* INFO HALAMAN */}
@@ -324,56 +584,113 @@ export default function Section1() {
 
       {/* FOOTER + HOME */}
       <footer className="menu-footer">
-        <button className="menu-home-btn" onClick={goHome} aria-label="Home">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="28"
-            height="28"
-            fill="none"
-            stroke="#169494"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
-          </svg>
-        </button>
-      </footer>
+
+        <img
+        src="/images/flower-left.png"
+        className="flower-left"
+        alt=""
+        />
+
+     <button
+        className="menu-home-btn"
+        onClick={goHome}
+      >
+        <FaHome />
+      </button>
+
+        <img
+        src="/images/flower-right.png"
+        className="flower-right"
+        alt=""
+        />
+
+        </footer>
 
       {/* POPUP BENAR / SALAH */}
-      {popup && (
-        <div
-          className="section1-popup-backdrop"
-          onClick={() => setPopup(null)}
-        >
-          <div
-            className="section1-popup"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div
-              className={`popup-icon ${
-                popup.type === "success"
-                  ? "popup-icon-success"
-                  : "popup-icon-error"
-              }`}
-            >
-              {popup.type === "success" ? "✓" : "✕"}
-            </div>
-            <p className="popup-text">
-              {popup.type === "success"
-                ? "Jawaban benar, hebat!"
-                : "Jawaban belum tepat, coba lagi ya."}
-            </p>
+      {showResult && (
+        <div className="result-overlay">
+          <div className="result-popup">
+
+            {/* Tombol Close */}
             <button
-              className="popup-close-btn"
-              onClick={() => setPopup(null)}
+              className="result-close"
+              onClick={() => {
+                setShowResult(false);
+                navigate("/menu");
+              }}
             >
-              OK
+              ✕
             </button>
+
+            <h2>🎉 Great Job!</h2>
+            <p className="result-subtitle">
+              Section 1 Finished
+            </p>
+
+            <div className="result-item">
+              <span>✅ Correct</span>
+              <strong>{correctCount}</strong>
+            </div>
+
+            <div className="result-item">
+              <span>❌ Wrong</span>
+              <strong>{wrongCount}</strong>
+            </div>
+
+            <div className="result-item">
+              <span>📊 Score</span>
+              <strong>{score}%</strong>
+            </div>
+
+            <button
+              className="next-section-btn"
+              onClick={() => {
+                setShowResult(false);
+                navigate("/section2");
+              }}
+            >
+              Next Section →
+            </button>
+
           </div>
         </div>
       )}
+
+        {popup && (
+          <div
+            className="section1-popup-backdrop"
+            onClick={() => setPopup(null)}
+          >
+            <div
+              className="section1-popup"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div
+                className={`popup-icon ${
+                  popup.type === "success"
+                    ? "popup-icon-success"
+                    : "popup-icon-error"
+                }`}
+              >
+                {popup.type === "success" ? "✓" : "✕"}
+              </div>
+
+              <p className="popup-text">
+                {popup.type === "success"
+                  ? "Jawaban benar, hebat!"
+                  : "Jawaban belum tepat, coba lagi ya."}
+              </p>
+
+              <button
+                className="popup-close-btn"
+                onClick={() => setPopup(null)}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        )}
+        
     </div>
   );
 }

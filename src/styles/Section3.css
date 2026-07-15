@@ -1,268 +1,1204 @@
-/* ============ SECTION 3: MULTIPLE CHOICE ============ */
+/* ==========================================================
+                SECTION 3 - PART 1
+                SCREEN + HEADER
+========================================================== */
 
-.section3-screen {
-  min-height: 100vh;
-  background-color: #c7faf5; /* biru muda */
-  display: flex;
-  flex-direction: column;
-  font-family: "Poppins", sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* HEADER KUNING */
-.section3-header {
-  position: relative;
-  background: linear-gradient(135deg, #ffb53f, #ff8800);
-  padding: 48px 16px 90px; /* atas, samping, bawah */
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+.section3-screen{
+
+    min-height:100vh;
+
+    background:#d9faf7;
+
+    display:flex;
+
+    flex-direction:column;
+
+    font-family:"Poppins",sans-serif;
+
+    overflow:hidden;
+
 }
 
-.section3-header-inner {
-  max-width: 360px;
-  margin: 0 auto;
-  text-align: left;
-  color: #ffffff;
+
+/* ==========================================================
+                        HEADER
+========================================================== */
+
+.section3-header{
+
+    position:relative;
+
+    width:100%;
+
+    height:310px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    border-bottom-left-radius:40px;
+
+    border-bottom-right-radius:40px;
+
+    overflow:hidden;
+
 }
 
-.section3-title-main {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
+
+/* overlay */
+
+.section3-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        rgba(0,0,0,.08),
+
+        rgba(0,0,0,.14)
+
+    );
+
 }
 
-.section3-title-sub {
-  margin: 6px 0 0;
-  font-size: 20px;
-  font-weight: 800;
-  color: #000000; /* bagian bahasa Indonesia hitam tebal */
+
+/* semua isi header */
+
+.section3-header>*{
+
+    position:relative;
+
+    z-index:2;
+
 }
 
-/* KARTU PUTIH "INTERPREET..." */
-.section3-instruction-card {
-  position: absolute;
-  left: 50%;
-  bottom: -34px;
-  transform: translateX(-50%);
-  background-color: #ffffff;
 
-  width: calc(100% - 48px); /* margin 24px kiri-kanan */
-  max-width: 360px;
+/* ==========================================================
+                    BACK BUTTON
+========================================================== */
 
-  padding: 16px 24px;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+.back-btn{
+
+    position:absolute;
+
+    left:16px;
+
+    top:16px;
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#178e90;
+
 }
 
-/* BODY */
-.section3-body {
-  flex: 1;
-  padding: 60px 16px 110px; /* atas kosong untuk kartu putih, bawah untuk footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+/* ==========================================================
+                    MUSIC BUTTON
+========================================================== */
+
+.music-btn{
+
+    position:absolute;
+
+    right:16px;
+
+    top:16px;
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+    cursor:pointer;
+
+    font-size:22px;
+
 }
 
-.section3-body-inner {
-  width: 100%;
-  max-width: 360px;
-  display: flex;
-  flex-direction: column;
+
+/* ==========================================================
+                    SLIDE PROGRESS
+========================================================== */
+
+.slide-progress{
+
+    position:absolute;
+
+    top:18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.22);
+
+    backdrop-filter:blur(10px);
+
+    color:#ffffff;
+
+    font-size:14px;
+
+    font-weight:700;
+
 }
 
-/* BLOK PERTANYAAN */
-.section3-question-block {
-  margin-bottom: 28px;
+
+/* ==========================================================
+                    TITLE BOARD
+========================================================== */
+
+.header-title-box{
+
+    position:absolute;
+
+    top:68px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:220px;
+
+    padding:16px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    box-shadow:0 10px 24px rgba(0,0,0,.22);
+
 }
 
-.section3-question-en {
-  margin: 0 0 4px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #1ca2a2;
+
+.header-title-box h1{
+
+    margin:0;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
 }
 
-.section3-question-number {
-  color: #1ca2a2;
+
+.header-title-box p{
+
+    margin-top:6px;
+
+    font-size:16px;
+
+    font-weight:600;
+
 }
 
-.section3-question-italic {
-  font-style: italic;
+
+/* ==========================================================
+                    MASCOT
+========================================================== */
+
+.header-mascot{
+
+    position:absolute;
+
+    right:16px;
+
+    bottom:0;
+
+    width:150px;
+
+    height:auto;
+
+    object-fit:contain;
+
+    animation:floatMascot 3s ease-in-out infinite;
+
 }
 
-.section3-question-id {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 500;
-  color: #1c6666;
-}
 
-/* PILIHAN JAWABAN */
-.section3-options {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 22px;
-}
+@keyframes floatMascot{
 
-.section3-option-btn {
-  width: 100%;
-  padding: 16px 20px;
-  border-radius: 999px;
-  border: none;
-  background-color: #1ca2a2;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.22);
-}
-
-/* TOMBOL PERIKSA */
-.section3-check-btn {
-  width: 100%;
-  padding: 12px 0;
-  border-radius: 18px;
-  border: none;
- background: linear-gradient(135deg, #ffb53f, #ff8800);
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-/* =================== RESPONSIVE =================== */
-
-/* HP kecil (<= 360px) */
-@media (max-width: 360px) {
-  .section3-title-main {
-    font-size: 20px;
-  }
-
-  .section3-title-sub {
-    font-size: 18px;
-  }
-
-  .section3-instruction-card {
-    font-size: 15px;
-    padding: 14px 18px;
-  }
-
-  .section3-question-en {
-    font-size: 16px;
-  }
-
-  .section3-option-btn {
-    font-size: 16px;
-    padding: 14px 18px;
-  }
-
-  .section3-check-btn {
-    font-size: 16px;
-  }
-}
-
-/* Tablet & desktop (>= 768px) */
-@media (min-width: 768px) {
-  .section3-header-inner,
-  .section3-body-inner {
-    max-width: 420px;
-  }
-
-  .section3-instruction-card {
-    max-width: 420px;
-  }
-
-  .section3-title-main {
-    font-size: 24px;
-  }
-
-  .section3-title-sub {
-    font-size: 22px;
-  }
-
-  .section3-question-en {
-    font-size: 20px;
-  }
-.section3-option-btn.section3-option-correct {
-  background-color: #b8f5c3;
-  color: #0c6e2f;
-  border: 3px solid #22c55e;
-}
-
-.section3-option-btn.section3-option-wrong {
-  background-color: #f8b2b2;
-  color: #8b0000;
-  border: 3px solid #ef4444;
-}
-.section3-progress {
-  width: 100%;
-  margin: 12px 0;
-  text-align: center; /* 🔥 pusatkan teks */
-  font-size: 16px;
-  font-weight: 600;
-  color: #1ca2a2;
-  display: block; /* pastikan full baris */
-}
-
-/* ======= PILIHAN JAWABAN ======= */
-
-  /* DEFAULT TOMBOL PILIHAN */
-    .section3-option-btn {
-    width: 100%;
-    padding: 14px 20px;
-    margin-bottom: 14px;
-    border-radius: 999px;
-    border: 2px solid transparent;   /* ini default */
-    background-color: #1ca2a2;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 700;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: all 0.25s ease;
+    0%{
+        transform:translateY(0);
     }
 
-    /* HOVER (opsional) */
-    .section3-option-btn:hover {
-    transform: scale(1.02);
+    50%{
+        transform:translateY(-8px);
     }
 
-    /* 🔥 SAAT DIPILIH (sebelum klik Periksa)
-    NOTE: pakai selector GABUNG supaya lebih kuat */
-    .section3-option-btn.section3-option-selected {
-    background-color: #ffffff;
-    color: #179295;
-    border: 3px solid #179295;         /* 👉 garis tepi muncul di sini */
+    100%{
+        transform:translateY(0);
+    }
+
+}
+/* ==========================================================
+                SECTION 3 - PART 2
+                BODY
+========================================================== */
+
+.section3-body{
+
+    flex:1;
+
+    margin-top:-25px;
+
+    padding:0 18px 110px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+/* ==========================================================
+                    WHITE CARD
+========================================================== */
+
+.section3-card{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:#ffffff;
+
+    border-radius:35px 35px 0 0;
+
+    padding:28px 22px 35px;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+}
+
+
+/* ==========================================================
+                TITLE
+========================================================== */
+
+.section3-card-title{
+
+    text-align:center;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    color:#444;
+
+    margin-bottom:10px;
+
+}
+
+
+/* ==========================================================
+                PROGRESS
+========================================================== */
+
+.section3-progress{
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#169494;
+
+    margin-bottom:28px;
+
+}
+
+
+/* ==========================================================
+                QUESTION BOX
+========================================================== */
+
+.section3-question-box{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+.section3-question{
+
+    font-size:26px;
+
+    font-weight:800;
+
+    color:#1f2937;
+
+    line-height:1.35;
+
+}
+
+
+.section3-subtitle{
+
+    margin-top:10px;
+
+    font-size:17px;
+
+    color:#6b7280;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================================
+                OPTIONS GRID
+========================================================== */
+
+.section3-options-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+
+/* ==========================================================
+                OPTION BUTTON
+========================================================== */
+
+.section3-option-btn{
+
+    min-height:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#179295;
+
+    color:#ffffff;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 6px 12px rgba(0,0,0,.15);
+
+    padding:12px;
+
+}
+
+
+.section3-option-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ==========================================================
+                SELECTED
+========================================================== */
+
+.section3-option-selected{
+
+    background:#ffffff;
+
+    color:#179295;
+
+    border:3px solid #179295;
+
     box-shadow:
-        0 0 0 4px #a9f3ee,
-        0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
+        0 0 0 4px #bff7f4,
+        0 6px 12px rgba(0,0,0,.15);
+
+}
+
+
+/* ==========================================================
+                CORRECT
+========================================================== */
+
+.section3-option-correct{
+
+    background:#b8f5c3;
+
+    color:#0b7b35;
+
+    border:3px solid #22c55e;
+
+}
+
+
+/* ==========================================================
+                WRONG
+========================================================== */
+
+.section3-option-wrong{
+
+    background:#ffc8c8;
+
+    color:#b91c1c;
+
+    border:3px solid #ef4444;
+
+}
+/* ==========================================================
+                SECTION 3 - PART 3
+                BUTTON + FOOTER + POPUP
+========================================================== */
+
+
+/* ==========================================================
+                    CHECK BUTTON
+========================================================== */
+
+.section3-check-btn{
+
+    width:100%;
+
+    margin-top:28px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #ffb53f,
+        #ff8800
+    );
+
+    color:#ffffff;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+}
+
+
+.section3-check-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+.section3-check-btn:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+}
+
+
+/* ==========================================================
+                    FOOTER
+========================================================== */
+
+.menu-footer{
+    position: relative;
+    width: 100%;
+    height: 82px;
+    background: #179b9d;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.menu-home-btn{
+    width:62px;
+    height:62px;
+    border:none;
+    border-radius:50%;
+    background:#ffffff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.menu-home-btn:hover{
+    transform:scale(1.08);
+}
+
+.menu-home-btn svg{
+    width:28px;
+    height:28px;
+    color:#169494;
+}
+
+.flower-left{
+    position:absolute;
+    left:10px;
+    bottom:0;
+    width:70px;
+}
+
+.flower-right{
+    position:absolute;
+    right:10px;
+    bottom:0;
+    width:70px;
+}
+
+.menu-home-btn{
+
+    width:62px;
+
+    height:62px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+    transition:.25s;
+
+}
+
+
+.menu-home-btn:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+.menu-home-btn svg{
+
+    width:30px;
+
+    height:30px;
+
+}
+
+
+/* ==========================================================
+                    POPUP
+========================================================== */
+
+.section1-popup-backdrop{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+
+.section1-popup{
+
+    width:320px;
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:28px 22px;
+
+    text-align:center;
+
+    animation:popupShow .25s ease;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+
+}
+
+
+.popup-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:0 auto 16px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    color:#ffffff;
+
+    font-weight:800;
+
+}
+
+
+.popup-icon-success{
+
+    background:#22c55e;
+
+}
+
+
+.popup-icon-error{
+
+    background:#ef4444;
+
+}
+
+
+.popup-text{
+
+    margin-bottom:20px;
+
+    font-size:17px;
+
+    color:#374151;
+
+    line-height:1.45;
+
+}
+
+
+.popup-close-btn{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#179295;
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+                    POPUP ANIMATION
+========================================================== */
+
+@keyframes popupShow{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.85);
+
     }
 
+    to{
 
+        opacity:1;
 
-    /* Setelah Periksa – JAWABAN BENAR (hijau) */
-    .section3-option-correct {
-    background-color: #b8f5c3;
-    color: #0c6e2f;
-    border-color: #22c55e;
-    box-shadow: 0 0 0 3px #bbf7d0, 0 6px 12px rgba(0, 0, 0, 0.25);
-    transform: scale(1.05);
+        transform:scale(1);
+
     }
 
-    /* Setelah Periksa – JAWABAN SALAH (merah) */
-    .section3-option-wrong {
-    background-color: #f8b2b2;
-    color: #8b0000;
-    border-color: #ef4444;
-    box-shadow: 0 0 0 3px #fecaca, 0 6px 12px rgba(0, 0, 0, 0.25);
-    transform: scale(1.05);
+}
+
+
+/* ==========================================================
+                RESPONSIVE
+========================================================== */
+
+@media(max-width:480px){
+
+    .header-title-box{
+
+        width:185px;
+
     }
 
+    .header-title-box h1{
+
+        font-size:26px;
+
+    }
+
+    .header-title-box p{
+
+        font-size:15px;
+
+    }
+
+    .header-mascot{
+
+        width:120px;
+
+    }
+
+    .section3-question{
+
+        font-size:22px;
+
+    }
+
+    .section3-subtitle{
+
+        font-size:16px;
+
+    }
+
+    .section3-options-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .section3-option-btn{
+
+        min-height:56px;
+
+        font-size:15px;
+
+    }
+
+}
+/* ==========================================================
+                SECTION 3 - PART 4
+                RESULT POPUP + EFFECT + FINISH
+========================================================== */
+
+
+/* ===========================
+        RESULT POPUP
+=========================== */
+
+.result-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    animation:fadeIn .25s ease;
+
+}
+
+
+.result-popup{
+
+    position:relative;
+
+    width:340px;
+
+    background:#ffffff;
+
+    border-radius:30px;
+
+    padding:32px 26px;
+
+    text-align:center;
+
+    animation:popupScale .28s ease;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+
+/* tombol silang */
+
+.result-close{
+
+    position:absolute;
+
+    top:14px;
+
+    right:14px;
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f2f2f2;
+
+    color:#666;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.result-close:hover{
+
+    background:#e3e3e3;
+
+}
+
+.result-trophy{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 18px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#FFD54F,#FFB300);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:46px;
+
+    box-shadow:0 12px 25px rgba(255,193,7,.45);
+
+}
+
+
+/* judul */
+
+.result-popup h2{
+
+    margin-top:8px;
+
+    color:#ff8c00;
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+
+/* subtitle */
+
+.result-subtitle{
+
+    margin-top:8px;
+
+    margin-bottom:22px;
+
+    color:#6b7280;
+
+    font-size:16px;
+
+}
+
+
+/* statistik */
+
+.result-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 18px;
+
+    margin-bottom:12px;
+
+    border-radius:14px;
+
+    background:#f5f7f9;
+
+}
+
+
+.result-item span{
+
+    font-size:16px;
+
+    color:#444;
+
+    font-weight:600;
+
+}
+
+
+.result-item strong{
+
+    font-size:18px;
+
+    color:#169494;
+
+}
+
+
+/* tombol next */
+
+.next-section-btn{
+
+    width:100%;
+
+    height:54px;
+
+    margin-top:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #ffb53f,
+        #ff8800
+    );
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 10px 18px rgba(0,0,0,.18);
+
+}
+
+
+.next-section-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ===========================
+        EFFECT
+=========================== */
+
+.section3-option-btn{
+
+    transition:
+        background .25s,
+        transform .25s,
+        box-shadow .25s,
+        border .25s;
+
+}
+
+
+.section3-option-btn:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* ===========================
+        SCROLL
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:7px;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#89dddd;
+
+    border-radius:20px;
+
+}
+
+
+/* ===========================
+        ANIMATION
+=========================== */
+
+@keyframes popupScale{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.82);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* ===========================
+        TABLET
+=========================== */
+
+@media(min-width:768px){
+
+    .section3-card{
+
+        max-width:520px;
+
+    }
+
+    .section3-question{
+
+        font-size:30px;
+
+    }
+
+    .section3-option-btn{
+
+        font-size:17px;
+
+    }
+
+}
+
+
+/* ===========================
+        DESKTOP
+=========================== */
+
+@media(min-width:1200px){
+
+    .section3-card{
+
+        max-width:620px;
+
+    }
 
 }

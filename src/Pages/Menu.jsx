@@ -1,91 +1,199 @@
 // src/Pages/Menu.jsx
 
-import { Link, useNavigate } from "react-router-dom";
-import "../styles/Menu.css";
+import { Link } from "react-router-dom";
 import { useAudio } from "../hooks/useAudio";
+import "../styles/Menu.css";
+import { FaHome } from "react-icons/fa";
 
 export default function Menu() {
-  const navigate = useNavigate();
-
   const { toggleMute, isMuted } = useAudio();
 
-  const goHome = () => {
-    navigate("/menu");
-  };
+  const sections = [
+    {
+      title: "Daily Activities",
+      subtitle: "(Kegiatan Sehari-hari)",
+      desc: "Belajar kosakata tentang kegiatan sehari-hari.",
+      image: "/images/daily.png",
+      icon: "☀️",
+      color: "orange",
+      path: "/section1",
+    },
+    {
+      title: "School & Subjects",
+      subtitle: "(Sekolah & Mata Pelajaran)",
+      desc: "Belajar kosakata tentang sekolah dan mata pelajaran.",
+      image: "/images/school.png",
+      icon: "⭐",
+      color: "green",
+      path: "/section2",
+    },
+    {
+      title: "Weather & Seasons",
+      subtitle: "(Cuaca & Musim)",
+      desc: "Belajar kosakata tentang cuaca dan musim.",
+      image: "/images/weather.png",
+      icon: "❄️",
+      color: "blue",
+      path: "/section3",
+    },
+    {
+      title: "Feelings & Health",
+      subtitle: "(Perasaan & Kesehatan)",
+      desc: "Belajar kosakata tentang perasaan dan kesehatan.",
+      image: "/images/feeling.png",
+      icon: "❤️",
+      color: "purple",
+      path: "/section4",
+    },
+  ];
 
   return (
-    <div className="menu-screen">
+    <div className="menu-page">
 
       {/* ================= HEADER ================= */}
+
       <header className="menu-header">
 
-        {/* Tombol Mute */}
+        {/* Background */}
+        <img
+          src="/images/header-bg.png"
+          alt=""
+          className="header-bg"
+        />
+
+        {/* Tombol Music */}
         <button
-          className="music-btn"
+          className="music-button"
           onClick={toggleMute}
-          aria-label="Toggle Music"
         >
           {isMuted ? "🔇" : "🔊"}
         </button>
 
         {/* Tulisan */}
-        <div className="menu-header-text">
-          <p className="menu-welcome">Hello welcome to</p>
+        <div className="header-title">
 
-          <p className="menu-title">
-            <span className="menu-title-bold">Get To Know</span>….
-          </p>
+          <h3>Hello welcome to</h3>
+
+          <h1>
+            <span className="orange">Get</span>{" "}
+            <span className="green">To</span>{" "}
+            <span className="blue">Know</span>....
+          </h1>
+
         </div>
 
-        {/* Main Course */}
-        <div className="menu-main-card">
-          <span>Main Course</span>
-        </div>
+        {/* Maskot */}
+        <img
+          src="/mascot.png"
+          className="header-mascot"
+          alt="Mascot"
+        />
 
       </header>
 
-      {/* ================= SECTION ================= */}
-      <main className="menu-body">
+      {/* ================= MAIN COURSE ================= */}
 
-        <Link to="/section1" className="menu-section-btn">
-          Section 1
-        </Link>
+      <div className="main-course-card">
 
-        <Link to="/section2" className="menu-section-btn">
-          Section 2
-        </Link>
+        <span className="star-left">⭐</span>
 
-        <Link to="/section3" className="menu-section-btn">
-          Section 3
-        </Link>
+        <h2>Main Course</h2>
 
-        <Link to="/section4" className="menu-section-btn">
-          Section 4
-        </Link>
+        <span className="star-right">⭐</span>
+
+      </div>
+
+      {/* ================= CARD LIST ================= */}
+
+      <main className="menu-content">
+
+        {sections.map((item, index) => (
+
+          <div
+            className={`course-card ${item.color}`}
+            key={index}
+          >
+
+            {/* Thumbnail */}
+            <div className="course-image">
+
+              <img
+                src={item.image}
+                alt={item.title}
+              />
+
+            </div>
+
+            {/* Text */}
+            <div className="course-info">
+
+              <h2>{item.title}</h2>
+
+              <h4>{item.subtitle}</h4>
+
+              <div className="divider"></div>
+
+              <p>{item.desc}</p>
+
+            </div>
+
+            {/* Icon */}
+            <div className="corner-icon">
+              {item.icon}
+            </div>
+
+            {/* Button */}
+            <Link
+              to={item.path}
+              className={`start-btn ${item.color}`}
+            >
+              Start
+              <span>❯</span>
+            </Link>
+
+          </div>
+
+        ))}
 
       </main>
 
       {/* ================= FOOTER ================= */}
+
       <footer className="menu-footer">
-        <button
-          className="menu-home-btn"
-          onClick={goHome}
-          aria-label="Home"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#169494"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
-          </svg>
-        </button>
+
+        <img
+          src="/images/flower-left.png"
+          alt=""
+          className="flower-left"
+        />
+
+        <footer className="menu-footer">
+
+          <img
+            src="/images/flower-left.png"
+            alt=""
+            className="flower-left"
+          />
+
+          <button className="menu-home-btn">
+
+            <FaHome />
+
+          </button>
+
+          <img
+            src="/images/flower-right.png"
+            alt=""
+            className="flower-right"
+          />
+
+        </footer>
+        <img
+          src="/images/flower-right.png"
+          alt=""
+          className="flower-right"
+        />
+
       </footer>
 
     </div>

@@ -1,228 +1,1115 @@
-/* ============ SECTION 4: LENGKAPI KOSAKATA ============ */
+/* =========================================================
+   SECTION 4
+   FEELINGS & HEALTH
+========================================================= */
 
-.section4-screen {
-  min-height: 100vh;
-  background-color: #c7faf5; /* biru muda */
-  display: flex;
-  flex-direction: column;
-  font-family: "Poppins", sans-serif;
+.section4-screen{
+    min-height:100vh;
+    background:#c7f3f2;
+    display:flex;
+    flex-direction:column;
+    font-family:"Poppins",sans-serif;
+    overflow-x:hidden;
 }
 
-/* HEADER KUNING */
-.section4-header {
-  position: relative;
-  background: linear-gradient(135deg, #ffb53f, #ff8800);
-  padding: 44px 16px 80px; /* atas, samping, bawah */
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+/* =========================================================
+   HEADER
+========================================================= */
+
+.section4-header{
+
+    position:relative;
+
+    height:300px;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+
+
 }
 
-.section4-header-inner {
-  max-width: 420px;
-  margin: 0 auto;
-  text-align: center;
+/* overlay tipis */
+
+.section4-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(255,255,255,.03),
+        rgba(255,255,255,.05)
+    );
+
 }
 
-.section4-title-line1,
-.section4-title-line2 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #ffffff;
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.section4-back-btn{
+
+    position:absolute;
+
+    left:14px;
+    top:14px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    color:#233;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+
+    transition:.25s;
+
 }
 
-.section4-title-line2 {
-  margin-top: 6px;
+.section4-back-btn:hover{
+
+    transform:scale(1.05);
+
 }
 
-.section4-title-highlight {
-  font-weight: 800;
-  color: #000000; /* bagian ini hitam */
+/* =========================================================
+   SPEAKER
+========================================================= */
+
+.section4-sound-btn{
+
+    position:absolute;
+
+    right:14px;
+    top:14px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    color:#0c4b66;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+
 }
 
-/* KARTU PUTIH "Lengkapi Kosakata" */
-.section4-instruction-card {
-  position: absolute;
-  left: 50%;
-  bottom: -34px;
-  transform: translateX(-50%);
-  background-color: #ffffff;
+.section4-sound-btn:hover{
 
-  width: calc(100% - 48px); /* margin 24px kiri-kanan */
-  max-width: 420px;
+    transform:scale(1.05);
 
-  padding: 16px 24px;
-  border-radius: 20px;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
 }
 
-/* BODY */
-.section4-body {
-  flex: 1;
-  padding: 90px 16px 110px; /* atas: ruang kartu putih, bawah: footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* =========================================================
+   SLIDE
+========================================================= */
+
+.section4-slide{
+
+    position:absolute;
+
+    left:50%;
+    top:14px;
+
+    transform:translateX(-50%);
+
+    font-size:18px;
+    font-weight:700;
+
+    color:#2b2b2b;
+
+    z-index:20;
+
 }
 
-.section4-body-inner {
-  width: 100%;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* =========================================================
+   BOARD
+========================================================= */
+
+.section4-board{
+
+    position:absolute;
+
+    left:50%;
+    top:48px;
+
+    transform:translateX(-50%);
+
+    width:295px;
+
+    border-radius:18px;
+
+    padding:18px 22px;
+
+    color:#fff;
+
+    text-align:center;
+
+    box-shadow:0 10px 18px rgba(0,0,0,.22);
+
+    z-index:15;
+
 }
 
-/* PROGRESS KECIL DI ATAS SOAL */
-.section4-progress {
-  font-size: 14px;
-  font-weight: 600;
-  color: #555555;
-  margin: 0 0 8px;
-  text-align: center;
+.section4-board h2{
+
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    line-height:1.35;
+
 }
 
-/* KALIMAT INDONESIA */
-.section4-question-id {
-  margin: 0 0 24px;
-  text-align: center;
-  font-size: 26px;
-  font-weight: 800;
-  color: #1ca2a2; /* hijau kebiruan seperti desain */
+.section4-board p{
+
+    margin-top:6px;
+
+    font-size:14px;
+
+    line-height:1.35;
+
 }
 
-/* KOTAK JAWABAN – "We [input] English" */
-.section4-answer-box {
-  width: 100%;
-  background-color: #8ee3e3;
-  border-radius: 18px;
-  border: 3px solid #1ca2a2;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+.section4-board b{
 
-  display: flex;
-  flex-wrap: wrap;          /* 🔥 biar rapi di HP kecil, bisa turun baris */
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 16px 20px;
-  margin-bottom: 32px;
+    color:#111;
+
+    font-weight:800;
+
 }
 
-/* Teks "We" dan "English" */
-.section4-answer-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: #179295;
+/* =========================================================
+   LABEL PUTIH
+========================================================= */
+
+.section4-label{
+
+    position:absolute;
+
+    left:50%;
+
+    top:145px;
+
+    transform:translateX(-50%);
+
+    width:220px;
+
+    background:#fff;
+
+    border-radius:999px;
+
+    padding:8px 0;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#222;
+
+    z-index:15;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
 }
 
-/* INPUT DI TENGAH */
-.section4-input {
-  width: 120px;
-  max-width: 40vw;          /* 🔥 batasi lebar relatif ke layar */
-  border: none;
-  border-bottom: 3px solid #179295;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  padding: 4px 2px;
-  outline: none;
-  background-color: transparent;
-  font-family: "Poppins", sans-serif;
+/* =========================================================
+   MASCOT
+========================================================= */
+
+.section4-mascot{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    height:165px;
+
+    object-fit:contain;
+
+    z-index:10;
+
+    pointer-events:none;
+
+}
+/* =========================================================
+   BODY
+========================================================= */
+
+.section4-body{
+
+    flex:1;
+
+    margin-top:0;
+
+    position:relative;
+
+    z-index:20;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:0 16px 110px;
+
 }
 
-/* Placeholder ".........." */
-.section4-input::placeholder {
-  color: #cccccc;
-  letter-spacing: 2px;
+.section4-body-inner{
+
+    width:100%;
+
+    max-width:390px;
+
 }
 
-/* TOMBOL PERIKSA */
-.section4-check-btn {
-  width: 100%;
-  padding: 12px 0;
-  border-radius: 18px;
-  border: none;
-  background-color: #ffb53f;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+/* =========================================================
+   WHITE CARD
+========================================================= */
+
+.section4-card{
+
+    background:#fff;
+
+    border-radius:34px 34px 0 0;
+
+    padding:30px 22px 40px;
+
+    margin-top:-35px;   /* ini yang membuat card naik */
+
+    position:relative;
+
+    z-index:20;
+
 }
 
-/* =================== RESPONSIVE =================== */
+/* =========================================================
+   PROGRESS
+========================================================= */
 
-/* HP kecil (<= 360px) */
-@media (max-width: 360px) {
-  .section4-title-line1,
-  .section4-title-line2 {
-    font-size: 18px;
-  }
+.section4-progress{
 
-  .section4-instruction-card {
-    font-size: 16px;
-    padding: 14px 18px;
-  }
+    display:flex;
 
-  .section4-question-id {
-    font-size: 22px;
-  }
+    justify-content:space-between;
 
-  .section4-answer-text {
-    font-size: 16px;
-  }
+    align-items:center;
 
-  .section4-input {
-    font-size: 16px;
-    width: 90px;
-  }
+    margin-bottom:18px;
 
-  .section4-check-btn {
-    font-size: 16px;
-  }
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#555;
+
 }
 
-/* Tablet (>= 768px) */
-@media (min-width: 768px) {
-  .section4-header-inner,
-  .section4-body-inner {
-    max-width: 480px;
-  }
+.section4-progress span:last-child{
 
-  .section4-instruction-card {
-    max-width: 480px;
-  }
+    font-weight:700;
 
-  .section4-title-line1,
-  .section4-title-line2 {
-    font-size: 22px;
-  }
+    color:#15959c;
 
-  .section4-question-id {
-    font-size: 28px;
-  }
-
-  .section4-answer-text {
-    font-size: 19px;
-  }
-
-  .section4-input {
-    font-size: 19px;
-    width: 140px;
-  }
 }
 
-/* Laptop lebar (>= 1024px) – biar tetap center dan nggak kepanjangan */
-@media (min-width: 1024px) {
-  .section4-header-inner,
-  .section4-body-inner {
-    max-width: 520px;
-  }
+/* =========================================================
+   TITLE
+========================================================= */
 
-  .section4-instruction-card {
-    max-width: 520px;
-  }
+.section4-theme-title{
+
+    text-align:center;
+
+    font-size:26px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+    line-height:1;
+
+}
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.section4-question-card{
+
+    text-align:center;
+
+    margin-bottom:22px;
+
+}
+
+.section4-question-id{
+
+    margin:0;
+
+    font-size:21px;
+
+    font-weight:700;
+
+    color:#15959c;
+
+    line-height:1.4;
+
+}
+
+/* =========================================================
+   COLOR TITLE
+========================================================= */
+
+.section4-theme-title{
+
+    color:#222;
+
+}
+
+/* Happy */
+
+.section4-body.happy .section4-theme-title{
+
+    color:#ef4f95;
+
+}
+
+/* Sad */
+
+.section4-body.sad .section4-theme-title{
+
+    color:#2f7de8;
+
+}
+
+/* Angry */
+
+.section4-body.angry .section4-theme-title{
+
+    color:#ff6f00;
+
+}
+
+/* Sick */
+
+.section4-body.sick .section4-theme-title{
+
+    color:#0e9b9b;
+
+}
+
+/* Tired */
+
+.section4-body.tired .section4-theme-title{
+
+    color:#7d4ce3;
+
+}
+/* =========================================================
+   ANSWER BOX
+========================================================= */
+
+.section4-answer-box{
+
+    width:100%;
+
+    min-height:74px;
+
+    background:#c8eff0;
+
+    border:2px solid #20a5ae;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:18px;
+
+    margin-bottom:28px;
+
+    box-shadow:0 8px 16px rgba(0,0,0,.12);
+
+    transition:.25s;
+
+}
+
+.section4-answer-box:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* =========================================================
+   PREFIX & SUFFIX
+========================================================= */
+
+.section4-answer-text{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#177d85;
+
+    white-space:nowrap;
+
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.section4-input{
+
+    width:120px;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    border-bottom:3px solid #16949b;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#ff5b5b;
+
+    font-family:"Poppins",sans-serif;
+
+    transition:.25s;
+
+}
+
+.section4-input:focus{
+
+    border-color:#ff9800;
+
+}
+
+.section4-input::placeholder{
+
+    color:#f8aaaa;
+
+    letter-spacing:4px;
+
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.section4-check-btn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#ffb133,#ff9200);
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 18px rgba(255,145,0,.35);
+
+    transition:.25s;
+
+}
+
+.section4-check-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.section4-check-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.menu-footer{
+
+    margin-top:auto;
+
+    height:82px;
+
+    background:#14999c;
+
+    border-top-left-radius:28px;
+
+    border-top-right-radius:28px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+/* bunga */
+
+.flower-left{
+
+    position:absolute;
+
+    left:12px;
+
+    bottom:6px;
+
+    width:58px;
+
+    pointer-events:none;
+
+}
+
+.flower-right{
+
+    position:absolute;
+
+    right:12px;
+
+    bottom:6px;
+
+    width:58px;
+
+    pointer-events:none;
+
+}
+
+/* tombol home */
+
+.menu-home-btn{
+
+    width:66px;
+
+    height:66px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    color:#14999c;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.22);
+
+    transform:translateY(-18px);
+
+    transition:.25s;
+
+}
+
+.menu-home-btn:hover{
+
+    transform:translateY(-22px) scale(1.05);
+
+}
+/* =========================================================
+   POPUP
+========================================================= */
+
+.section1-popup-backdrop{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.section1-popup{
+
+    width:90%;
+
+    max-width:340px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:28px 24px;
+
+    text-align:center;
+
+    animation:popupShow .28s ease;
+
+}
+
+.popup-icon{
+
+    width:86px;
+
+    height:86px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:auto;
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.popup-icon-success{
+
+    background:#d7ffe2;
+
+    color:#22b14c;
+
+}
+
+.popup-icon-error{
+
+    background:#ffd8d8;
+
+    color:#ef4444;
+
+}
+
+.popup-text{
+
+    margin:22px 0;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#333;
+
+    line-height:1.5;
+
+}
+
+.popup-close-btn{
+
+    width:100%;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#ffb133,#ff9300);
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.result-popup{
+
+    width:92%;
+
+    max-width:360px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:30px 24px;
+
+    position:relative;
+
+    animation:popupShow .3s ease;
+
+}
+
+.result-close{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ececec;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.result-trophy{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#fff5ca;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:48px;
+
+}
+
+.result-title{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.result-subtitle{
+
+    text-align:center;
+
+    color:#777;
+
+    margin-bottom:22px;
+
+}
+
+.result-card{
+
+    background:#f7f7f7;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:22px;
+
+}
+
+.result-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:14px;
+
+    font-size:17px;
+
+}
+
+.result-row:last-child{
+
+    margin-bottom:0;
+
+}
+
+.next-section-btn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#ffb133,#ff9200);
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:480px){
+
+.section4-header{
+
+    height:270px;
+
+}
+
+.section4-board{
+
+    width:250px;
+
+    padding:14px 18px;
+
+}
+
+.section4-board h2{
+
+    font-size:14px;
+
+}
+
+.section4-board p{
+
+    font-size:12px;
+
+}
+
+.section4-label{
+
+    width:190px;
+
+    top:128px;
+
+}
+
+.section4-mascot{
+
+    height:138px;
+
+}
+
+.section4-card{
+
+    border-radius:28px 28px 0 0;
+
+    padding:28px 16px 34px;
+
+}
+
+.section4-progress{
+
+    font-size:13px;
+
+}
+
+.section4-theme-title{
+
+    font-size:22px;
+
+}
+
+.section4-question-id{
+
+    font-size:18px;
+
+}
+
+.section4-answer-box{
+
+    flex-wrap:wrap;
+
+}
+
+.section4-answer-text{
+
+    font-size:16px;
+
+}
+
+.section4-input{
+
+    width:90px;
+
+    font-size:18px;
+
+}
+
+.section4-check-btn{
+
+    height:52px;
+
+    font-size:18px;
+
+}
+
+.menu-home-btn{
+
+    width:60px;
+
+    height:60px;
+
+    font-size:26px;
+
+}
+
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes popupShow{
+
+0%{
+
+opacity:0;
+
+transform:scale(.85);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fadeIn{
+
+0%{
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:1;
+
+}
+
 }

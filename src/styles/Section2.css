@@ -1,284 +1,756 @@
-/* ============ SECTION 2: ARRANGE SENTENCE ============ */
+/* ==========================================================
+                    SECTION 2 SCREEN
+========================================================== */
 
-.section2-screen {
-  min-height: 100vh;
-  background-color: #c7faf5; /* biru muda */
-  display: flex;
-  flex-direction: column;
-  font-family: "Poppins", sans-serif;
-}
-
-/* HEADER KUNING */
-.section2-header {
-  position: relative;
- background: linear-gradient(135deg, #ffb53f, #ff8800);
-  padding: 44px 16px 80px; /* sedikit lebih tebal */
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-}
-
-.section2-header-inner {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-/* semua teks header dasar putih */
-.section2-title-line1,
-.section2-title-line2 {
-  margin: 0;
-  font-size: 22px;      /* 🔥 lebih besar dari sebelumnya */
-  font-weight: 600;
-  color: #ffffff;
-}
-
-/* baris kedua punya sedikit jarak atas */
-.section2-title-line2 {
-  margin-top: 6px;
-}
-
-/* bagian "a perfect sentence" hitam & tebal */
-.section2-title-highlight {
-  font-weight: 800;
-  color: #000000;       /* 🔥 highlight hitam */
-}
-
-/* KARTU PUTIH INSTRUKSI */
-.section2-instruction {
-  position: absolute;
-  left: 50%;
-  bottom: -34px;
-  transform: translateX(-50%);
-  background-color: #ffffff;
-
-  width: calc(100% - 32px);  /* responsif: margin 16px kiri-kanan */
-  max-width: 420px;
-
-  padding: 16px 24px;
-  border-radius: 20px;
-  font-size: 18px;      /* 🔥 dibesarkan */
-  font-weight: 700;
-  text-align: center;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
-}
-
-/* BODY */
-.section2-body {
-  flex: 1;
-  padding: 90px 16px 110px; /* atas: ruang kartu putih, bawah: footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.section2-body-inner {
-  width: 100%;
-  max-width: 420px; /* kolom tengah */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-/* KALIMAT SOAL */
-.section2-question {
-  margin: 0 0 28px;
-  text-align: center;
-  font-size: 26px;      /* 🔥 lebih besar */
-  font-weight: 800;
-  color: #000000;
-}
-
-/* AREA KATA TERPILIH + GARIS */
-.section2-selected-area {
-  min-height: 40px;
-  display: flex;
-  flex-wrap: wrap;        /* 🔥 ini kunci agar kata berpindah ke baris baru */
-  gap: 8px;               /* jarak antar kata */
-  align-items: center;
-  justify-content: flex-start; /* biar mulai dari kiri */
-  margin-bottom: 8px;
-  padding: 4px 0;         /* sedikit ruang biar rapi */
+.section2-screen{
+    min-height:100vh;
+    background:#d7faf7;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    font-family:"Poppins",sans-serif;
 }
 
 
-/* GARIS JAWABAN */
-.section2-line {
-  width: 100%;
-  border-bottom: 3px solid #179295;
-}
+/* ==========================================================
+                    HEADER
+========================================================== */
 
-.section2-line-second {
-  margin-top: 8px;
-}
+.section2-header{
 
+    position:relative;
 
-/* WORD PILLS */
-.word-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 22px;   /* sedikit lebih tebal & lebar */
-  border-radius: 999px;
-  background-color: #1ca2a2;
-  color: #ffffff;
-  font-size: 18px;      /* 🔥 dibesarkan */
-  font-weight: 700;
-  box-shadow:
-    0 0 0 3px #90f4ee,
-    0 6px 12px rgba(0, 0, 0, 0.25);
-}
+    width:100%;
 
-.word-pill-selected {
-  background-color: #a5e9ea;
-  color: #179295;
-  box-shadow:
-    0 0 0 3px #d6ffff,
-    0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    height:310px;
 
-.word-pill-empty {
-  min-width: 80px;
-  height: 44px;
-  background-color: #bfeeee;
-  box-shadow:
-    0 0 0 3px #bfeeee,
-    0 4px 8px rgba(0, 0, 0, 0.15);
-}
+    overflow:hidden;
 
-/* BANK KATA DI BAWAH */
-.section2-word-bank {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 28px;
-}
+    background-size:cover;
 
-/* TOMBOL NEXT */
-.section2-next-btn {
-  width: 100%;
-  padding: 12px 0;
-  border-radius: 20px;
-  border: none;
- background: linear-gradient(135deg, #ffb53f, #ff8800);
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-}
+    background-position:center;
 
-/* AREA PILIHAN TERPILIH DI ATAS GARIS */
-.section2-selected-wrapper {
-  width: 100%;
-  max-width: 420px;     /* sama seperti body-inner kalau mau */
-  margin: 0 auto 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* tinggi total untuk area + garis, supaya layout nggak geser */
-  height: 110px;        /* boleh kamu ubah 100–130 sesuai selera */
+    background-repeat:no-repeat;
+
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+
 }
 
 
-/* INI YANG PENTING */
-.section2-selected-area {
-  /* RUANG UNTUK KATA2 SAJA (di atas garis) */
-  flex: 1;                   /* isi tinggi di atas garis */
-  display: flex;
-  flex-wrap: wrap;           /* 🔥 kunci: kalau penuh, pindah ke baris kedua */
-  gap: 8px;
-  align-items: center;
-  justify-content: center;   /* atau flex-start kalau mau rata kiri */
-  padding: 4px 0;
-  box-sizing: border-box;
+/* overlay agar tulisan tetap terbaca */
+
+.section2-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        rgba(0,0,0,.08),
+
+        rgba(0,0,0,.15)
+
+    );
+
 }
 
-/* pill umum */
-.word-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background-color: #1ca2a2;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  box-shadow: 0 0 0 3px #90f4ee, 0 6px 12px rgba(0, 0, 0, 0.25);
-  min-width: 70px;
-  min-height: 40px;
-  border: none;
+
+/* semua isi header */
+
+.section2-header>*{
+
+    position:relative;
+
+    z-index:2;
+
 }
 
-/* pill yang sudah kepilih di area atas */
-.word-pill-selected {
-  background-color: #9ee5ea;
-  color: #179295;
-  box-shadow: 0 0 0 3px #d4fbff, 0 6px 10px rgba(0, 0, 0, 0.2);
+
+/* ==========================================================
+                    BACK BUTTON
+========================================================== */
+
+.back-btn{
+
+    position:absolute;
+
+    left:16px;
+
+    top:16px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.25);
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#2d5d8d;
+
 }
 
-/* pill di bank bawah yang sudah digunakan (jadi kosong) */
-.word-pill-empty {
-  background-color: #bfeeee;
-  box-shadow: 0 0 0 3px #bfeeee, 0 4px 8px rgba(0, 0, 0, 0.15);
-  color: transparent; /* teks disembunyikan */
+
+/* ==========================================================
+                    MUSIC BUTTON
+========================================================== */
+
+.music-btn{
+
+    position:absolute;
+
+    right:16px;
+
+    top:16px;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.25);
+
+    cursor:pointer;
+
+    font-size:22px;
+
 }
 
-/* =================== RESPONSIVE BREAKPOINTS =================== */
 
-/* HP kecil (<= 360px) */
-@media (max-width: 360px) {
-  .section2-title-line1,
-  .section2-title-line2 {
-    font-size: 18px;
-  }
+/* ==========================================================
+                    SLIDE PROGRESS
+========================================================== */
 
-  .section2-instruction {
-    font-size: 16px;
-    padding: 12px 18px;
-  }
+.slide-progress{
 
-  .section2-question {
-    font-size: 22px;
-  }
+    position:absolute;
 
-  .word-pill {
-    font-size: 15px;
-    padding: 8px 16px;
-  }
+    top:18px;
 
-  .section2-next-btn {
-    font-size: 16px;
-  }
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:700;
+
 }
 
-/* Tablet & desktop (>= 768px) */
-@media (min-width: 768px) {
-  .section2-header-inner {
-    max-width: 520px;
-  }
 
-  .section2-title-line1,
-  .section2-title-line2 {
-    font-size: 24px;
-  }
+/* ==========================================================
+                    TITLE BOARD
+========================================================== */
 
-  .section2-question {
-    font-size: 28px;
-  }
+.header-title-box{
 
-  .section2-body-inner {
-    max-width: 480px;
-  }
+    position:absolute;
 
-  .section2-instruction {
-    max-width: 480px;
-    font-size: 19px;
-  }
+    left:50%;
 
-  .word-pill {
-    font-size: 19px;
-    padding: 10px 24px;
-  }
+    transform:translateX(-50%);
+
+    top:70px;
+
+    width:220px;
+
+    padding:16px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    color:#fff;
+
+    box-shadow:0 10px 24px rgba(0,0,0,.25);
+
+}
+
+
+.header-title-box h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+.header-title-box p{
+
+    margin-top:6px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================================
+                    MASCOT
+========================================================== */
+
+.header-mascot{
+
+    position:absolute;
+
+    right:15px;
+
+    bottom:0;
+
+    width:145px;
+
+    height:auto;
+
+    object-fit:contain;
+
+    animation:floatMascot 3s ease-in-out infinite;
+
+}
+@keyframes floatMascot{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+/* ==========================================================
+                    BODY
+========================================================== */
+
+.section2-body{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:22px 18px 120px;
+
+}
+
+
+/* ==========================================================
+                INDONESIAN SENTENCE
+========================================================== */
+
+.section2-question{
+
+    margin:8px 0 18px;
+
+    text-align:center;
+
+    font-size:21px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+
+/* ==========================================================
+                WORD PLACE AREA
+========================================================== */
+
+.section2-selected-wrapper{
+
+    width:100%;
+
+    min-height:120px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+}
+
+
+.section2-selected-area{
+
+    min-height:70px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+/* garis jawaban */
+
+.section2-line{
+
+    width:100%;
+
+    border-bottom:3px dashed #cfcfcf;
+
+    margin-top:8px;
+
+}
+
+
+/* ==========================================================
+                WORD BANK
+========================================================== */
+
+.section2-word-bank{
+
+    width:100%;
+
+    max-width:340px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+
+/* ==========================================================
+                WORD BUTTON
+========================================================== */
+
+.word-pill{
+
+    min-width:70px;
+
+    min-height:42px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ffffff;
+
+    color:#333;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+
+    transition:.2s;
+
+}
+
+
+.word-pill:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+.word-pill-selected{
+
+    background:#ffefc9;
+
+    border:2px solid #ffb53f;
+
+}
+
+
+.word-pill-empty{
+
+    visibility:hidden;
+
+}
+
+
+/* ==========================================================
+                NEXT BUTTON
+========================================================== */
+
+.section2-next-btn{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#ffb53f,#ff8800);
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    margin-top:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+
+}
+
+
+.section2-next-btn:hover{
+
+    transform:translateY(-2px);
+
+}/* ==========================================================
+                    FOOTER
+========================================================== */
+
+.menu-footer{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:85px;
+
+    background:#16a6a6;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-top-left-radius:28px;
+
+    border-top-right-radius:28px;
+
+    z-index:100;
+
+}
+
+.menu-home-btn{
+
+    width:64px;
+
+    height:64px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.22);
+
+    transition:.2s;
+
+}
+
+
+.menu-home-btn:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+.menu-home-btn svg{
+
+    width:28px;
+
+    height:28px;
+
+    color:#169494;
+
+}
+
+
+/* ==========================================================
+                    RESULT POPUP
+========================================================== */
+
+.result-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+
+.result-popup{
+
+    position:relative;
+
+    width:320px;
+
+    background:#ffffff;
+
+    border-radius:24px;
+
+    padding:28px 24px;
+
+    text-align:center;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+
+    animation:popupShow .25s ease;
+
+}
+
+
+.result-close{
+
+    position:absolute;
+
+    top:14px;
+
+    right:14px;
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#eeeeee;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+.result-popup h2{
+
+    margin:10px 0 8px;
+
+    color:#ff8a00;
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+
+.result-subtitle{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+    font-size:16px;
+
+}
+
+
+.result-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    padding:12px 16px;
+
+    background:#f6f6f6;
+
+    border-radius:12px;
+
+}
+
+
+.result-item strong{
+
+    color:#169494;
+
+    font-size:18px;
+
+}
+
+
+.next-section-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#ffb53f,#ff8800);
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+                    ANIMATION
+========================================================== */
+
+@keyframes popupShow{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:480px){
+
+    .header-title-box{
+
+        width:170px;
+
+    }
+
+    .header-title-box h1{
+
+        font-size:24px;
+
+    }
+
+    .header-title-box p{
+
+        font-size:14px;
+
+    }
+
+    .header-mascot{
+
+        width:100px;
+
+    }
+
+    .section2-question{
+
+        font-size:18px;
+
+    }
+
+    .word-pill{
+
+        min-width:62px;
+
+        font-size:14px;
+
+    }
+
+    .section2-next-btn{
+
+        width:150px;
+
+    }
+
 }

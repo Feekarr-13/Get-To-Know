@@ -2,7 +2,215 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Section2.css";
+import { FaHome } from "react-icons/fa";
 
+/* ==========================================================
+        THEME SETIAP SLIDE SECTION 2
+========================================================== */
+
+const PAGE_THEMES = [
+
+  // ================= 1 =================
+  {
+    title: "Wake Up",
+    subtitle: "(Bangun Tidur)",
+    background: "/background2/slide1.png",
+    mascot: "/mascot2/wakeup.png",
+    board: "orange",
+    sceneIcon: "🌞",
+  },
+
+  // ================= 2 =================
+  {
+    title: "Take a Bath",
+    subtitle: "(Mandi)",
+    background: "/background2/slide2.png",
+    mascot: "/mascot2/bath.png",
+    board: "blue",
+    sceneIcon: "🛁",
+  },
+
+  // ================= 3 =================
+  {
+    title: "Have Breakfast",
+    subtitle: "(Sarapan)",
+    background: "/background2/slide3.png",
+    mascot: "/mascot2/breakfast.png",
+    board: "orange",
+    sceneIcon: "🍳",
+  },
+
+  // ================= 4 =================
+  {
+    title: "Go To School",
+    subtitle: "(Pergi Ke Sekolah)",
+    background: "/background2/slide4.png",
+    mascot: "/mascot2/school.png",
+    board: "green",
+    sceneIcon: "🏫",
+  },
+
+  // ================= 5 =================
+  {
+    title: "Study",
+    subtitle: "(Belajar)",
+    background: "/background2/slide5.png",
+    mascot: "/mascot2/study.png",
+    board: "purple",
+    sceneIcon: "📚",
+  },
+
+  // ================= 6 =================
+  {
+    title: "School",
+    subtitle: "(Sekolah)",
+    background: "/background2/slide6.png",
+    mascot: "/mascot2/school2.png",
+    board: "green",
+    sceneIcon: "🏫",
+  },
+
+  // ================= 7 =================
+  {
+    title: "Classroom",
+    subtitle: "(Ruang Kelas)",
+    background: "/background2/slide7.png",
+    mascot: "/mascot2/classroom.png",
+    board: "blue",
+    sceneIcon: "🪑",
+  },
+
+  // ================= 8 =================
+  {
+    title: "Math",
+    subtitle: "(Matematika)",
+    background: "/background2/slide8.png",
+    mascot: "/mascot2/math.png",
+    board: "purple",
+    sceneIcon: "➗",
+  },
+
+  // ================= 9 =================
+  {
+    title: "English",
+    subtitle: "(Bahasa Inggris)",
+    background: "/background2/slide9.png",
+    mascot: "/mascot2/english.png",
+    board: "orange",
+    sceneIcon: "🔤",
+  },
+
+  // ================= 10 =================
+  {
+    title: "Playground",
+    subtitle: "(Lapangan)",
+    background: "/background2/slide10.png",
+    mascot: "/mascot2/playground.png",
+    board: "cyan",
+    sceneIcon: "⚽",
+  },
+
+  // ================= 11 =================
+  {
+    title: "Sunny",
+    subtitle: "(Cerah)",
+    background: "/background2/slide11.png",
+    mascot: "/mascot2/sunny.png",
+    board: "orange",
+    sceneIcon: "☀️",
+  },
+
+  // ================= 12 =================
+  {
+    title: "Rainy",
+    subtitle: "(Hujan)",
+    background: "/background2/slide12.png",
+    mascot: "/mascot2/rainy.png",
+    board: "blue",
+    sceneIcon: "🌧️",
+  },
+
+  // ================= 13 =================
+  {
+    title: "Cloudy",
+    subtitle: "(Berawan)",
+    background: "/background2/slide13.png",
+    mascot: "/mascot2/cloudy.png",
+    board: "blue",
+    sceneIcon: "☁️",
+  },
+
+  // ================= 14 =================
+  {
+    title: "Windy",
+    subtitle: "(Berangin)",
+    background: "/background2/slide14.png",
+    mascot: "/mascot2/windy.png",
+    board: "cyan",
+    sceneIcon: "🍃",
+  },
+
+  // ================= 15 =================
+  {
+    title: "Stormy",
+    subtitle: "(Badai)",
+    background: "/background2/slide15.png",
+    mascot: "/mascot2/stormy.png",
+    board: "navy",
+    sceneIcon: "⚡",
+  },
+
+  // ================= 16 =================
+  {
+    title: "Happy",
+    subtitle: "(Senang)",
+    background: "/background2/slide16.png",
+    mascot: "/mascot2/happy.png",
+    board: "pink",
+    sceneIcon: "😊",
+  },
+
+  // ================= 17 =================
+  {
+    title: "Sad",
+    subtitle: "(Sedih)",
+    background: "/background2/slide17.png",
+    mascot: "/mascot2/sad.png",
+    board: "blue",
+    sceneIcon: "😢",
+  },
+
+  // ================= 18 =================
+  {
+    title: "Angry",
+    subtitle: "(Marah)",
+    background: "/background2/slide18.png",
+    mascot: "/mascot2/angry.png",
+    board: "red",
+    sceneIcon: "😡",
+  },
+
+  // ================= 19 =================
+  {
+    title: "Sick",
+    subtitle: "(Sakit)",
+    background: "/background2/slide19.png",
+    mascot: "/mascot2/sick.png",
+    board: "cyan",
+    sceneIcon: "🤒",
+  },
+
+  // ================= 20 =================
+  {
+    title: "Tired",
+    subtitle: "(Lelah)",
+    background: "/background2/slide20.png",
+    mascot: "/mascot2/tired.png",
+    board: "purple",
+    sceneIcon: "😴",
+  }
+
+];
 // 5 SOAL: susun kata jadi kalimat
 const QUESTIONS = [
   {
@@ -206,21 +414,58 @@ export default function Section2() {
   const [selectedIds, setSelectedIds] = useState([]);
   const [popup, setPopup] = useState(null);
 
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+
   const currentQuestion = QUESTIONS[currentIndex];
+
+    const currentTheme = PAGE_THEMES[currentIndex];
+
+    const boardColors = {
+      orange: "#f59e0b",
+      blue: "#3b82f6",
+      green: "#22c55e",
+      purple: "#8b5cf6",
+      cyan: "#06b6d4",
+      navy: "#1e3a8a",
+      pink: "#ec4899",
+      red: "#ef4444",
+    };
+
+    const boardStyle = {
+      backgroundColor:
+        boardColors[currentTheme.board] || "#22c55e",
+    };
+  
   const totalQuestions = QUESTIONS.length;
   const isLastQuestion = currentIndex === totalQuestions - 1;
 
   const goHome = () => navigate("/menu");
 
-  const handleNext = () => {
+  const playFinishAudio = () => {
+    const audio = new Audio("/audio/yeay.mp3");
+
+    audio.volume = 1;
+
+    audio.play().catch(() => {});
+  };
+
+    const handleNext = () => {
     if (!isLastQuestion) {
-      // masih ada soal berikutnya → lanjut & reset pilihan
+
       setCurrentIndex((prev) => prev + 1);
       setSelectedIds([]);
       setPopup(null);
+
     } else {
-      // sudah soal terakhir → balik ke menu
-      navigate("/menu");
+
+      playFinishAudio();
+
+      setTimeout(() => {
+        setShowResult(true);
+      }, 400);
+
     }
   };
 
@@ -243,9 +488,21 @@ export default function Section2() {
     );
 
     if (isCorrect) {
-      setPopup({ type: "success" });
-    } else {
-      setPopup({ type: "error" });
+
+    setCorrectCount((prev)=>prev+1);
+
+    setPopup({
+        type:"success"
+    });
+
+    }else{
+
+        setWrongCount((prev)=>prev+1);
+
+        setPopup({
+            type:"error"
+        });
+
     }
   };
 
@@ -255,38 +512,119 @@ export default function Section2() {
     );
   };
 
-  const clearPopup = () => setPopup(null);
+  const clearPopup = () => {
+
+    setPopup(null);
+
+    if (isLastQuestion) {
+
+      playFinishAudio();
+
+      setTimeout(() => {
+
+        setShowResult(true);
+
+      },300);
+
+    } else {
+
+      setCurrentIndex((prev)=>prev+1);
+
+      setSelectedIds([]);
+
+    }
+
+  };
 
   const selectedWords = selectedIds
     .map((id) => currentQuestion.words.find((w) => w.id === id))
     .filter(Boolean);
 
-  return (
+  const score = Math.round(
+    (correctCount / totalQuestions) * 100
+  );
+
+return (
     <div className="section2-screen">
-      <header className="section2-header">
-        <div className="section2-header-inner">
-          <p className="section2-title-line1">
-            Arrange the words correctly
-          </p>
-          <p className="section2-title-line2">
-            to make{" "}
-            <span className="section2-title-highlight">
-              a perfect sentence
-            </span>
-          </p>
-        </div>
-        <div className="section2-instruction">
-          Susun Menjadi 1 Kalimat
-        </div>
-      </header>
+      <header
+      className="section2-header"
+      style={{
+        backgroundImage: `url(${currentTheme.background})`
+      }}
+    >
+
+      <button
+        className="back-btn"
+        onClick={() => navigate("/menu")}
+      >
+        ←
+      </button>
+
+      <button
+        className="music-btn"
+      >
+        🔊
+      </button>
+
+      <div className="slide-progress">
+        Slide {currentIndex + 1} dari {QUESTIONS.length}
+      </div>
+
+      <div
+        className="header-title-box"
+        style={boardStyle}
+      >
+        <h1>{currentTheme.title}</h1>
+        <p>{currentTheme.subtitle}</p>
+      </div>
+
+      <img
+        src={currentTheme.mascot}
+        className="header-mascot"
+        alt=""
+      />
+
+    </header>
 
       <main className="section2-body">
         <div className="section2-body-inner">
-          <p className="section2-progress">
-            Soal {currentIndex + 1} dari {totalQuestions}
-          </p>
+          <div className="page-indicator">
 
-          <h2 className="section2-question">{currentQuestion.indo}</h2>
+        {QUESTIONS.map((_,index)=>(
+
+            <span
+
+                key={index}
+
+                className={
+                    index===currentIndex
+                    ?
+
+                    "active"
+
+                    :
+
+                    ""
+
+                }
+
+            />
+
+        ))}
+
+    </div>
+
+          <h2 className="section2-question">
+
+              {currentQuestion.indo}
+
+          </h2>
+
+          <p className="section2-instruction">
+
+              Susun kalimat di bawah ini
+
+          </p>
 
           <div className="section2-selected-wrapper">
             <div className="section2-selected-area">
@@ -330,23 +668,96 @@ export default function Section2() {
       </main>
 
       <footer className="menu-footer">
-        <button className="menu-home-btn" onClick={goHome} aria-label="Home">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="28"
-            height="28"
-            fill="none"
-            stroke="#169494"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
-          </svg>
-        </button>
-      </footer>
+        <img
+        src="/images/flower-left.png"
+        className="flower-left"
+        alt=""
+        />
 
+        <button
+          className="menu-home-btn"
+          onClick={goHome}
+        >
+          <FaHome />
+        </button>
+
+        <img
+        src="/images/flower-right.png"
+        className="flower-right"
+        alt=""
+        />
+
+        </footer>
+        {showResult && (
+
+          <div className="result-overlay">
+
+          <div className="result-popup">
+
+          <button
+          className="result-close"
+          onClick={()=>{
+          setShowResult(false);
+          navigate("/menu");
+          }}
+          >
+
+          ✕
+
+          </button>
+
+          <h2>🎉 Great Job!</h2>
+
+          <p className="result-subtitle">
+
+          Section 2 Finished
+
+          </p>
+
+          <div className="result-item">
+
+          <span>✅ Correct</span>
+
+          <strong>{correctCount}</strong>
+
+          </div>
+
+          <div className="result-item">
+
+          <span>❌ Wrong</span>
+
+          <strong>{wrongCount}</strong>
+
+          </div>
+
+          <div className="result-item">
+
+          <span>📊 Score</span>
+
+          <strong>{score}%</strong>
+
+          </div>
+
+          <button
+          className="next-section-btn"
+          onClick={()=>{
+
+          setShowResult(false);
+
+          navigate("/section3");
+
+          }}
+          >
+
+          Next Section →
+
+          </button>
+
+          </div>
+
+          </div>
+
+          )}
       {popup && (
         <div
           className="section1-popup-backdrop"

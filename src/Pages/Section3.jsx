@@ -2,107 +2,219 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Section3.css";
+import { FaHome } from "react-icons/fa";
 
 const QUESTIONS = [
+  // Slide 1
+  {
+    question: "It is sunny.",
+    sub: "Apa arti kalimat di atas?",
+    options: [
+      { id: "hot", text: "Cuacanya panas", isCorrect: false },
+      { id: "sunny", text: "Cuacanya cerah", isCorrect: true },
+      { id: "rain", text: "Sedang turun hujan", isCorrect: false },
+      { id: "wind", text: "Anginnya kencang", isCorrect: false },
+    ],
+  },
+
+  // Slide 2
   {
     question: "It is raining.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "hot", text: "Cuacanya panas", isCorrect: false },
+      { id: "sunny", text: "Cuacanya cerah", isCorrect: false },
       { id: "rain", text: "Sedang turun hujan", isCorrect: true },
-      { id: "clear", text: "Cuacanya cerah", isCorrect: false },
+      { id: "cloudy", text: "Langit berawan", isCorrect: false },
       { id: "wind", text: "Anginnya kencang", isCorrect: false },
     ],
   },
+
+  // Slide 3
   {
-    question: "Today is sunny.",
+    question: "It is cloudy.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "cloudy", text: "Hari ini berawan", isCorrect: false },
-      { id: "sunny", text: "Hari ini cerah", isCorrect: true },
-      { id: "rainy", text: "Hari ini hujan", isCorrect: false },
-      { id: "cold", text: "Hari ini dingin", isCorrect: false },
+      { id: "sunny", text: "Cuacanya cerah", isCorrect: false },
+      { id: "cloudy", text: "Langit berawan", isCorrect: true },
+      { id: "rain", text: "Sedang turun hujan", isCorrect: false },
+      { id: "storm", text: "Ada petir", isCorrect: false },
     ],
   },
+
+  // Slide 4
   {
-    question: "I am happy.",
+    question: "It is windy.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "angry", text: "Saya marah", isCorrect: false },
-      { id: "sad", text: "Saya sedih", isCorrect: false },
-      { id: "happy", text: "Saya senang", isCorrect: true },
-      { id: "sick", text: "Saya sakit", isCorrect: false },
+      { id: "wind", text: "Anginnya kencang", isCorrect: true },
+      { id: "cold", text: "Cuacanya dingin", isCorrect: false },
+      { id: "cloud", text: "Langit berawan", isCorrect: false },
+      { id: "rain", text: "Sedang turun hujan", isCorrect: false },
     ],
   },
+
+  // Slide 5
   {
-    question: "He is sick.",
+    question: "It is stormy.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "tired", text: "Dia lelah", isCorrect: false },
-      { id: "sick", text: "Dia sakit", isCorrect: true },
-      { id: "hungry", text: "Dia lapar", isCorrect: false },
-      { id: "happy", text: "Dia bahagia", isCorrect: false },
+      { id: "sunny", text: "Cuacanya cerah", isCorrect: false },
+      { id: "storm", text: "Sedang badai", isCorrect: true },
+      { id: "cloud", text: "Langit berawan", isCorrect: false },
+      { id: "wind", text: "Anginnya sepoi-sepoi", isCorrect: false },
     ],
   },
+
+  // Slide 6
   {
-    question: "We study English on Monday.",
+    question: "It is snowy.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "right", text: "Kami belajar Bahasa Inggris pada hari Senin", isCorrect: true },
-      { id: "ball", text: "Kami bermain bola di hari Senin", isCorrect: false },
-      { id: "sunday", text: "Kami pergi ke sekolah hari Minggu", isCorrect: false },
-      { id: "everyday", text: "Kami membaca buku setiap hari", isCorrect: false },
+      { id: "snow", text: "Sedang turun salju", isCorrect: true },
+      { id: "hot", text: "Cuacanya panas", isCorrect: false },
+      { id: "wind", text: "Anginnya kencang", isCorrect: false },
+      { id: "storm", text: "Sedang badai", isCorrect: false },
     ],
   },
+
+  // Slide 7
   {
-    question: "My teacher is kind.",
+    question: "It is spring.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "bad", text: "Guru saya jahat", isCorrect: false },
-      { id: "funny", text: "Guru saya lucu", isCorrect: false },
-      { id: "kind", text: "Guru saya baik", isCorrect: true },
-      { id: "old", text: "Guru saya tua", isCorrect: false },
+      { id: "spring", text: "Musim semi", isCorrect: true },
+      { id: "summer", text: "Musim panas", isCorrect: false },
+      { id: "autumn", text: "Musim gugur", isCorrect: false },
+      { id: "winter", text: "Musim dingin", isCorrect: false },
     ],
   },
+
+  // Slide 8
   {
-    question: "I like math.",
+    question: "It is summer.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "like", text: "Saya suka matematika", isCorrect: true },
-      { id: "hate", text: "Saya benci matematika", isCorrect: false },
-      { id: "science", text: "Saya belajar sains", isCorrect: false },
-      { id: "noLesson", text: "Saya tidak punya pelajaran", isCorrect: false },
+      { id: "summer", text: "Musim panas", isCorrect: true },
+      { id: "spring", text: "Musim semi", isCorrect: false },
+      { id: "autumn", text: "Musim gugur", isCorrect: false },
+      { id: "winter", text: "Musim dingin", isCorrect: false },
     ],
   },
+
+  // Slide 9
   {
-    question: "I get up at six.",
+    question: "It is autumn.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "sleepSix", text: "Saya tidur pukul enam", isCorrect: false },
-      { id: "dinnerSix", text: "Saya makan malam pukul enam", isCorrect: false },
-      { id: "getupSix", text: "Saya bangun pukul enam", isCorrect: true },
-      { id: "schoolSix", text: "Saya pergi sekolah pukul enam", isCorrect: false },
+      { id: "autumn", text: "Musim gugur", isCorrect: true },
+      { id: "spring", text: "Musim semi", isCorrect: false },
+      { id: "summer", text: "Musim panas", isCorrect: false },
+      { id: "winter", text: "Musim dingin", isCorrect: false },
     ],
   },
+
+  // Slide 10
   {
-    question: "I have breakfast.",
+    question: "It is clear at night.",
     sub: "Apa arti kalimat di atas?",
     options: [
-      { id: "lunch", text: "Saya makan siang", isCorrect: false },
-      { id: "breakfast", text: "Saya makan pagi", isCorrect: true },
-      { id: "dinner", text: "Saya makan malam", isCorrect: false },
-      { id: "tea", text: "Saya minum teh sore", isCorrect: false },
+      { id: "night", text: "Cerah di malam hari", isCorrect: true },
+      { id: "rain", text: "Sedang turun hujan", isCorrect: false },
+      { id: "cloud", text: "Langit berawan", isCorrect: false },
+      { id: "storm", text: "Sedang badai", isCorrect: false },
     ],
   },
+];
+
+const PAGE_THEMES = [
+  // Slide 1 - Sunny
   {
-    question: "I go to school by bicycle.",
-    sub: "Apa arti kalimat di atas?",
-    options: [
-      { id: "car", text: "Saya pergi ke sekolah naik mobil", isCorrect: false },
-      { id: "walk", text: "Saya pergi ke sekolah jalan kaki", isCorrect: false },
-      { id: "bike", text: "Saya pergi ke sekolah naik sepeda", isCorrect: true },
-      { id: "noSchool", text: "Saya tidak pergi ke sekolah", isCorrect: false },
-    ],
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide1.png",
+    mascot: "/mascot3/sunny.png",
+    board: "blue",
+  },
+
+  // Slide 2 - Rainy
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide2.png",
+    mascot: "/mascot3/rainy.png",
+    board: "navy",
+  },
+
+  // Slide 3 - Cloudy
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide3.png",
+    mascot: "/mascot3/cloudy.png",
+    board: "green",
+  },
+
+  // Slide 4 - Windy
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide4.png",
+    mascot: "/mascot3/windy.png",
+    board: "cyan",
+  },
+
+  // Slide 5 - Stormy
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide5.png",
+    mascot: "/mascot3/stormy.png",
+    board: "purple",
+  },
+
+  // Slide 6 - Snowy
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide6.png",
+    mascot: "/mascot3/snowy.png",
+    board: "orange",
+  },
+
+  // Slide 7 - Spring
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide7.png",
+    mascot: "/mascot3/spring.png",
+    board: "pink",
+  },
+
+  // Slide 8 - Summer
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide8.png",
+    mascot: "/mascot3/summer.png",
+    board: "yellow",
+  },
+
+  // Slide 9 - Autumn
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide9.png",
+    mascot: "/mascot3/autumn.png",
+    board: "orange",
+  },
+
+  // Slide 10 - Night
+  {
+    title: "Weather & Seasons",
+    subtitle: "(Cuaca dan Musim)",
+    background: "/background3/slide10.png",
+    mascot: "/mascot3/night.png",
+    board: "navy",
   },
 ];
 
@@ -115,9 +227,45 @@ export default function Section3() {
   const [result, setResult] = useState(null);
   const [results, setResults] = useState(() => QUESTIONS.map(() => null));
   const [showNext, setShowNext] = useState(false); // ⬅️ kontrol tombol Next
+  const [showResult, setShowResult] = useState(false);
 
   const totalQuestions = QUESTIONS.length;
   const currentQuestion = QUESTIONS[currentIndex];
+  const currentTheme = PAGE_THEMES[currentIndex];
+
+const boardStyle = {
+  blue: {
+    background: "linear-gradient(180deg,#2d7be8,#1e57c7)",
+  },
+
+  navy: {
+    background: "linear-gradient(180deg,#233b7a,#142856)",
+  },
+
+  green: {
+    background: "linear-gradient(180deg,#4CAF50,#2E7D32)",
+  },
+
+  cyan: {
+    background: "linear-gradient(180deg,#20C997,#0F8E83)",
+  },
+
+  purple: {
+    background: "linear-gradient(180deg,#8B5CF6,#6D28D9)",
+  },
+
+  orange: {
+    background: "linear-gradient(180deg,#FF9800,#F57C00)",
+  },
+
+  pink: {
+    background: "linear-gradient(180deg,#EC4899,#DB2777)",
+  },
+
+  yellow: {
+    background: "linear-gradient(180deg,#FFC107,#FF9800)",
+  },
+}[currentTheme.board];
 
   const goHome = () => navigate("/menu");
 
@@ -170,19 +318,11 @@ export default function Section3() {
   };
 
   const handleNext = () => {
-    const newCorrectCount = results.filter((r) => r === "correct").length;
 
     // kalau ini soal terakhir → mainkan suara dan pindah ke score
-    if (currentIndex === totalQuestions - 1) {
+   if (currentIndex === totalQuestions - 1) {
       playSfx("finish");
-      setTimeout(() => {
-        navigate("/score", {
-          state: {
-            score: newCorrectCount,
-            total: totalQuestions,
-          },
-        });
-      }, 1500);
+      setShowResult(true);
       return;
     }
 
@@ -195,8 +335,13 @@ export default function Section3() {
   };
 
   const closePopup = () => {
-    setPopup(null);
-  };
+  setPopup(null);
+
+  // kalau sudah diperiksa, lanjut otomatis
+  if (showNext) {
+    handleNext();
+  }
+};
 
   // kelas untuk opsi
   const getOptionClass = (opt) => {
@@ -213,89 +358,139 @@ export default function Section3() {
   };
 
   const isLastQuestion = currentIndex === totalQuestions - 1;
+    const correctCount = results.filter(
+    (r) => r === "correct"
+  ).length;
+
+  const wrongCount = totalQuestions - correctCount;
+
+  const score = Math.round(
+    (correctCount / totalQuestions) * 100
+  );
 
   return (
     <div className="section3-screen">
       {/* HEADER */}
-      <header className="section3-header">
-        <div className="section3-header-inner">
-          <p className="section3-title-main">Multiple Choice</p>
-          <p className="section3-title-sub">(Pilihlah jawaban yang benar!)</p>
+      <header
+        className="section3-header"
+        style={{
+          backgroundImage: `url(${currentTheme.background})`,
+        }}
+      >
+
+        <button
+          className="back-btn"
+          onClick={() => navigate("/menu")}
+        >
+          ←
+        </button>
+
+        <button className="music-btn">
+          🔊
+        </button>
+
+        <div className="slide-progress">
+          Slide {currentIndex + 1} dari {totalQuestions}
         </div>
-        <div className="section3-instruction-card">
-          Interpret The Following Sentences
+
+        <div
+          className="header-title-box"
+          style={boardStyle}
+        >
+          <h1>{currentTheme.title}</h1>
+
+          <p>{currentTheme.subtitle}</p>
         </div>
+
+        <img
+          src={currentTheme.mascot}
+          alt="Mascot"
+          className="header-mascot"
+        />
+
       </header>
 
       {/* BODY */}
       <main className="section3-body">
-        <div className="section3-body-inner">
-          <p
-            className="section3-progress"
-            style={{ textAlign: "center", color: "#1ca2a2", fontWeight: 600 }}
-          >
-            Soal {currentIndex + 1} dari {totalQuestions}
+
+      <div className="section3-card">
+
+        <div className="section3-card-title">
+          Interpret The Following Sentences
+        </div>
+
+        <p className="section3-progress">
+          Soal {currentIndex + 1} dari {totalQuestions}
+        </p>
+
+        <div className="section3-question-box">
+
+          <h2 className="section3-question">
+            {currentIndex + 1}. {currentQuestion.question}
+          </h2>
+
+          <p className="section3-subtitle">
+            {currentQuestion.sub}
           </p>
 
-          <div className="section3-question-block">
-            <p className="section3-question-en">
-              <span className="section3-question-number">
-                {currentIndex + 1}.{" "}
-              </span>
-              <span className="section3-question-italic">
-                {currentQuestion.question}
-              </span>
-            </p>
-            <p className="section3-question-id">{currentQuestion.sub}</p>
-          </div>
-
-          <div className="section3-options">
-            {currentQuestion.options.map((opt) => (
-              <button
-                key={opt.id}
-                className={`section3-option-btn ${getOptionClass(opt)}`}
-                onClick={() => handleSelect(opt.id)}
-                disabled={results[currentIndex] !== null}
-              >
-                {opt.text}
-              </button>
-            ))}
-          </div>
-
-          {/* Tombol ganti dinamis */}
-          {showNext ? (
-            <button
-              className="section3-check-btn"
-              onClick={handleNext}
-              style={{ backgroundColor: "#1ca2a2" }}
-            >
-              {isLastQuestion ? "Finish" : "Next"}
-            </button>
-          ) : (
-            <button className="section3-check-btn" onClick={handleCheck}>
-              Periksa
-            </button>
-          )}
         </div>
-      </main>
+
+        <div className="section3-options-grid">
+          {currentQuestion.options.map((opt) => (
+            <button
+              key={opt.id}
+              className={`section3-option-btn ${getOptionClass(opt)}`}
+              onClick={() => handleSelect(opt.id)}
+              disabled={results[currentIndex] !== null}
+            >
+              {opt.text}
+            </button>
+          ))}
+        </div>
+
+        {showNext ? (
+          <button
+            className="section3-check-btn"
+            onClick={handleNext}
+          >
+            {isLastQuestion ? "Finish" : "Next"}
+          </button>
+        ) : (
+          <button
+            className="section3-check-btn"
+            onClick={handleCheck}
+          >
+            Periksa
+          </button>
+        )}
+
+      </div>
+
+    </main>
 
       {/* FOOTER */}
       <footer className="menu-footer">
-        <button className="menu-home-btn" onClick={goHome} aria-label="Home">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="28"
-            height="28"
-            fill="none"
-            stroke="#169494"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
-          </svg>
+
+        <img
+          src="/images/flower-left.png"
+          className="flower-left"
+          alt=""
+        />
+
+        <button
+          className="menu-home-btn"
+          onClick={goHome}
+          aria-label="Home"
+        >
+          <FaHome />
         </button>
+
+        <img
+          src="/images/flower-right.png"
+          className="flower-right"
+          alt=""
+        />
+
       </footer>
 
       {/* POPUP */}
@@ -321,6 +516,67 @@ export default function Section3() {
           </div>
         </div>
       )}
+      {showResult && (
+      <div className="result-overlay">
+        <div
+          className="result-popup"
+          onClick={(e) => e.stopPropagation()}
+        >
+
+          <button
+            className="result-close"
+            onClick={() => {
+              setShowResult(false);
+              navigate("/menu");
+            }}
+          >
+            ✕
+          </button>
+
+          <div className="result-trophy">
+            🏆
+          </div>
+
+          <h2 className="result-title">
+            Excellent!
+          </h2>
+
+          <p className="result-subtitle">
+            You have completed this section.
+          </p>
+
+          <div className="result-card">
+
+            <div className="result-row">
+              <span>✅ Correct</span>
+              <strong>{correctCount}</strong>
+            </div>
+
+            <div className="result-row">
+              <span>❌ Wrong</span>
+              <strong>{wrongCount}</strong>
+            </div>
+
+            <div className="result-row">
+              <span>🏆 Score</span>
+              <strong>{score}%</strong>
+            </div>
+
+          </div>
+
+          <button
+            className="next-section-btn"
+            onClick={() => {
+              setShowResult(false);
+              navigate("/section4");
+            }}
+          >
+            Next Section →
+          </button>
+
+        </div>
+      </div>
+    )}
     </div>
   );
 }

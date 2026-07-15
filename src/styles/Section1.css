@@ -1,322 +1,1154 @@
-/* ============ SECTION 1: DAILY ACTIVITIES (RESPONSIVE) ============ */
+/*==========================================================
+        GET TO KNOW
+        SECTION 1 CSS V2
+==========================================================*/
 
-.section1-screen {
-  min-height: 100vh;
-  background-color: #c7faf5;
-  display: flex;
-  flex-direction: column;
-  font-family: "Poppins", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* HEADER KUNING */
-.section1-header {
-  position: relative;
- background: linear-gradient(135deg, #ffb53f, #ff8800);
-  padding: 40px 16px 72px; /* kiri kanan 16px biar ikut lebar layar */
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+body{
+
+    font-family:"Poppins",sans-serif;
+    background:#DDF9F7;
+
 }
 
-.section1-header-inner {
-  max-width: 600px; /* di laptop boleh agak lebar */
-  margin: 0 auto;
-  color: #ffffff;
-  text-align: left;
+.section1-screen{
+
+    min-height:100vh;
+
+    background:#DDF9F7;
+
+    overflow:hidden;
+
+    position:relative;
+
 }
 
-.section1-title-en {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
+/*==========================================================
+                    HEADER
+==========================================================*/
+
+.section1-header{
+
+    position:relative;
+
+    width:100%;
+    height:245px;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+
 }
 
-.section1-title-id {
-  margin: 8px 0 0;
-  font-size: 22px;
-  font-weight: 900;
-  color: #000000;
+/*==========================================================
+            WARNA PAPAN
+==========================================================*/
+
+.header-title-box{
+
+    position:absolute;
+
+    top:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:220px;
+
+    height:72px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+
+    z-index:20;
+
 }
 
-/* KOTAK PUTIH INSTRUKSI – PANJANG & RESPONSIVE */
-.section1-instruction {
-  position: absolute;
-  left: 50%;
-  bottom: -32px;
-  transform: translateX(-50%);
-  background-color: #ffffff;
+.header-title-box.orange{
 
-  width: calc(100% - 32px); /* 16px margin kiri-kanan di semua device */
-  max-width: 420px; /* di tablet / laptop tidak terlalu panjang */
+    background:linear-gradient(
+        to bottom,
+        #F5A548,
+        #D97A20
+    );
 
-  padding: 14px 20px;
-  border-radius: 20px;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: center;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
 }
 
-/* BODY – konten di bawah header */
-.section1-body {
-  flex: 1;
-  padding: 80px 16px 110px; /* 80px untuk ruang kartu putih */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.header-title-box.green{
+
+    background:linear-gradient(
+        to bottom,
+        #2F9D7E,
+        #1C7C61
+    );
+
 }
 
-/* GRID DIBATASI KOLOM TENGAH, TAPI IKUT LAYAR */
-.section1-grid {
-  width: 100%;
-  max-width: 420px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 16px;
-  row-gap: 16px;
-  margin-bottom: 32px;
+.header-title-box.blue{
+
+    background:linear-gradient(
+        to bottom,
+        #3F9FFF,
+        #2575D6
+    );
+
 }
 
-.section1-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.header-title-box.purple{
+
+    background:linear-gradient(
+        to bottom,
+        #8D6BFF,
+        #6844DD
+    );
+
 }
 
-/* TOMBOL PASANGAN (default) */
-.section1-pair {
-  width: 100%;
-  padding: 12px 8px;
-  border-radius: 18px;
-  border: none;
-  background-color: #1ca2a2;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow:
-    0 0 0 3px #90f4ee,
-    0 6px 12px rgba(0, 0, 0, 0.25);
-}
-.section1-progress {
-  margin: 0 0 16px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1ca2a2;
+/*==========================================================
+                TITLE
+==========================================================*/
+
+.header-title-box h1{
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:800;
+
 }
 
-.section1-next:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.header-title-box p{
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:600;
+
 }
 
-/* ====== STATUS LOGIKA: BENAR / SALAH ====== */
+/*==========================================================
+                BACK BUTTON
+==========================================================*/
 
-/* TOMBOL PASANGAN (default) */
-.section1-pair {
-  width: 100%;
-  padding: 12px 8px;
-  border-radius: 18px;
-  border: none;
-  background-color: #2ba5a5;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow:
-    0 0 0 3px #5ac6bf,
-    0 6px 12px rgba(0, 0, 0, 0.25);
+.back-btn{
 
-  /* 🔽 tambahan biar ukurannya seragam */
-  min-height: 56px;              /* boleh kamu ubah 50–60px sesuai selera */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-/* tombol pasangan: kondisi BENAR */
-.section1-pair.pair-correct {
-  border: 3px solid #22c55e; /* hijau */
-  background-color: #1cca94;
-  color: #ffffff;
-  font-weight: 800;
-  transform: scale(1.05); /* sedikit membesar biar terasa terpilih */
-  transition: all 0.25s ease-in-out;
-  box-shadow:
-    0 0 0 3px #bbf7d0,
-    0 6px 12px rgba(0, 0, 0, 0.25);
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    font-size:22px;
+
+    color:#1976D2;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 10px rgba(0,0,0,.20);
+
+    z-index:50;
+
 }
 
+/*==========================================================
+                MUSIC BUTTON
+==========================================================*/
 
-/* tombol pasangan: kondisi SALAH (sementara) */
-.section1-pair.pair-wrong {
-  border: 3px solid #ef4444; /* merah */
-  background-color: #dc6b6b;
-  box-shadow:
-    0 0 0 3px #fecaca,
-    0 6px 12px rgba(0, 0, 0, 0.25);
+.music-btn{
+
+    position:absolute;
+
+    top:12px;
+
+    right:12px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    box-shadow:0 5px 10px rgba(0,0,0,.20);
+
+    z-index:50;
+
 }
 
-/* kalau sudah benar (disabled) */
-.section1-pair:disabled {
-  cursor: default;
-  opacity: 0.9;
+/*==========================================================
+                    MASKOT
+==========================================================*/
+
+.header-mascot{
+
+    position:absolute;
+
+    right:8px;
+
+    bottom:-5px;
+
+    width:110px;
+
+    z-index:15;
+
+    animation:mascotFloat 3s ease-in-out infinite;
+
 }
 
-/* TOMBOL NEXT */
-.section1-next-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+@keyframes mascotFloat{
+
+0%{
+
+transform:translateY(0px);
+
 }
 
-.section1-next {
-  padding: 10px 36px;
-  border-radius: 18px;
-  border: none; background: linear-gradient(135deg, #ffb53f, #ff8800);
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+50%{
+
+transform:translateY(-8px);
+
 }
 
-/* ========= POPUP BENAR / SALAH ========= */
+100%{
 
-.section1-popup-backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
+transform:translateY(0px);
+
 }
 
-.section1-popup {
-  background-color: #ffffff;
-  padding: 20px 24px;
-  border-radius: 18px;
-  text-align: center;
-  max-width: 260px;
-  width: 80%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}/*==========================================================
+                PAGE INDICATOR
+==========================================================*/
+
+.page-indicator{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:10px;
+
 }
 
-.popup-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 0 auto 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: 800;
-  color: #ffffff;
+.page-indicator span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#E8E8E8;
+
 }
 
-.popup-icon-success {
-  background-color: #22c55e;
+.page-indicator span.active{
+
+    width:22px;
+
+    border-radius:20px;
+
+    background:#2EB7A7;
+
 }
 
-.popup-icon-error {
-  background-color: #ef4444;
+/*==========================================================
+                PAGE TEXT
+==========================================================*/
+
+.section1-progress{
+
+    text-align:center;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#1F8E91;
+
+    margin-top:8px;
+
+    margin-bottom:10px;
+
 }
 
-.popup-text {
-  margin: 0 0 16px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111827;
+/*==========================================================
+            INSTRUCTION CARD
+==========================================================*/
+
+.instruction-card{
+
+    width:90%;
+
+    max-width:330px;
+
+    margin:10px auto 18px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:12px 18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#2E2E2E;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
+
 }
 
-.popup-close-btn {
-  padding: 8px 20px;
-  border-radius: 999px;
-  border: none;
-  background-color: #1ca2a2;
-  color: #ffffff;
-  font-weight: 700;
-  cursor: pointer;
+.instruction-card span{
+
+    color:#FFB400;
+
+    font-size:18px;
+
 }
 
-/* ========== FOOTER & HOME BTN (kalau belum di global.css) ========== */
+/*==========================================================
+                BODY
+==========================================================*/
 
-.menu-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background-color: #1ca2a2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+.section1-body{
+
+    padding:8px 18px 120px;
+
 }
 
-.menu-home-btn {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
+/*==========================================================
+                GRID
+==========================================================*/
+
+.section1-grid{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-top:10px;
+
 }
 
-.menu-home-btn svg {
-  width: 30px;
-  height: 30px;
+/*==========================================================
+            COLUMN
+==========================================================*/
+
+.section1-col{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}/*==========================================================
+                PAIR BUTTON
+==========================================================*/
+
+.section1-pair{
+
+    width:100%;
+
+    min-height:58px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        to bottom,
+        #25B8B2,
+        #149D96
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:10px;
+
+    transition:.25s;
+
+    box-shadow:
+        0 5px 0 #0D7D79,
+        0 8px 18px rgba(0,0,0,.15);
+
 }
 
-/* =================== RESPONSIVE BREAKPOINTS =================== */
+.section1-pair:hover{
 
-/* HP kecil (<= 360px) */
-@media (max-width: 360px) {
-  .section1-title-en {
-    font-size: 20px;
-  }
+    transform:translateY(-3px);
 
-  .section1-title-id {
-    font-size: 18px;
-  }
-
-  .section1-instruction {
-    font-size: 16px;
-  }
-
-  .section1-pair {
-    font-size: 14px;
-  }
-
-  .section1-next {
-    font-size: 16px;
-  }
 }
 
-/* Tablet & desktop (>= 768px) */
-@media (min-width: 768px) {
-  .section1-header-inner,
-  .section1-grid {
-    max-width: 480px;
-  }
+.section1-pair:active{
 
-  .section1-title-en {
-    font-size: 26px;
-  }
+    transform:scale(.97);
 
-  .section1-title-id {
-    font-size: 24px;
-  }
+}
 
-  .section1-question-en {
-    font-size: 20px;
-  }
+/*==========================================================
+            SELECTED
+==========================================================*/
+
+.section1-pair.selected{
+
+    background:linear-gradient(
+        to bottom,
+        #FFD34E,
+        #FFB400
+    );
+
+    color:#3A3A3A;
+
+    box-shadow:
+        0 5px 0 #CC9200,
+        0 10px 18px rgba(0,0,0,.18);
+
+}
+
+/*==========================================================
+                CORRECT
+==========================================================*/
+
+.section1-pair.pair-correct{
+
+    background:linear-gradient(
+        to bottom,
+        #43D17E,
+        #22B35F
+    );
+
+    box-shadow:
+        0 5px 0 #148643,
+        0 10px 18px rgba(0,0,0,.18);
+
+    animation:correctBounce .4s;
+
+}
+
+@keyframes correctBounce{
+
+0%{
+
+transform:scale(.9);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/*==========================================================
+                WRONG
+==========================================================*/
+
+.section1-pair.pair-wrong{
+
+    background:linear-gradient(
+        to bottom,
+        #FF7A7A,
+        #F04A4A
+    );
+
+    animation:shake .45s;
+
+}
+
+@keyframes shake{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+20%{
+
+transform:translateX(-6px);
+
+}
+
+40%{
+
+transform:translateX(6px);
+
+}
+
+60%{
+
+transform:translateX(-5px);
+
+}
+
+80%{
+
+transform:translateX(5px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
+
+/*==========================================================
+                DISABLED
+==========================================================*/
+
+.section1-pair:disabled{
+
+    cursor:default;
+
+}
+
+/*==========================================================
+                NEXT BUTTON
+==========================================================*/
+
+.section1-next-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:28px;
+
+}
+
+.section1-next{
+
+    width:170px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+        to bottom,
+        #FFA726,
+        #FB8C00
+    );
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:
+        0 6px 0 #D96B00,
+        0 10px 18px rgba(0,0,0,.18);
+
+}
+
+.section1-next:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.section1-next:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+/*==========================================================
+            POPUP
+==========================================================*/
+
+.section1-popup{
+
+    border-radius:24px;
+
+    padding:28px;
+
+    background:white;
+
+    box-shadow:
+        0 18px 30px rgba(0,0,0,.25);
+
+}
+
+.popup-close-btn{
+
+    margin-top:15px;
+
+    width:130px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#20B4AA;
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}/*==========================================================
+                FOOTER
+==========================================================*/
+
+.menu-footer{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:95px;
+
+    background:linear-gradient(
+        180deg,
+        #1EC6C0,
+        #149D96
+    );
+
+    border-top-left-radius:40px;
+    border-top-right-radius:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    z-index:100;
+
+    overflow:visible;
+
+}
+
+/*==========================================================
+                HOME BUTTON
+==========================================================*/
+
+.menu-home-btn{
+
+    position:absolute;
+
+    top:-28px;
+
+    width:70px;
+
+    height:70px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.20);
+
+    transition:.25s;
+
+}
+
+.menu-home-btn:hover{
+
+    transform:scale(1.08);
+
+}
+
+.menu-home-btn svg{
+
+    width:28px;
+
+    height:28px;
+
+    color:#169494;
+
+}
+
+/*==========================================================
+                FLOWERS
+==========================================================*/
+
+.flower-left{
+
+    position:absolute;
+
+    left:12px;
+
+    bottom:10px;
+
+    width:65px;
+
+    animation:flowerFloat 3s ease-in-out infinite;
+
+}
+
+.flower-right{
+
+    position:absolute;
+
+    right:12px;
+
+    bottom:10px;
+
+    width:65px;
+
+    animation:flowerFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes flowerFloat{
+
+0%{
+
+transform:rotate(-4deg);
+
+}
+
+50%{
+
+transform:rotate(4deg);
+
+}
+
+100%{
+
+transform:rotate(-4deg);
+
+}
+
+}
+
+/*==========================================================
+                CLOUD
+==========================================================*/
+
+.cloud{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:60px;
+
+    opacity:.9;
+
+    box-shadow:0 8px 14px rgba(0,0,0,.08);
+
+}
+
+.cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:white;
+
+    top:-12px;
+
+    left:12px;
+
+}
+
+.cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:white;
+
+    top:-18px;
+
+    right:10px;
+
+}
+
+/* cloud 1 */
+
+.cloud-1{
+
+    width:95px;
+
+    height:36px;
+
+    top:28px;
+
+    left:-90px;
+
+    animation:cloudMove1 26s linear infinite;
+
+}
+
+/* cloud 2 */
+
+.cloud-2{
+
+    width:120px;
+
+    height:44px;
+
+    top:80px;
+
+    right:-120px;
+
+    animation:cloudMove2 34s linear infinite;
+
+}
+
+@keyframes cloudMove1{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(520px);
+
+}
+
+}
+
+@keyframes cloudMove2{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(-560px);
+
+}
+
+}
+
+/*==========================================================
+                RESPONSIVE
+==========================================================*/
+
+@media(max-width:480px){
+
+.section1-header{
+
+height:220px;
+
+}
+
+.header-title-box{
+
+width:190px;
+
+height:65px;
+
+}
+
+.header-title-box h1{
+
+font-size:15px;
+
+}
+
+.header-title-box p{
+
+font-size:11px;
+
+}
+
+.header-mascot{
+
+width:95px;
+
+}
+
+.instruction-card{
+
+width:92%;
+
+font-size:14px;
+
+}
+
+.section1-pair{
+
+font-size:15px;
+
+min-height:54px;
+
+}
+
+.section1-next{
+
+width:150px;
+
+height:50px;
+
+font-size:18px;
+
+}
+
+.menu-home-btn{
+
+width:64px;
+
+height:64px;
+
+}
+
+}
+/* ================= RESULT POPUP ================= */
+
+.result-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.result-popup{
+
+    position:relative;
+
+    width:320px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:28px 24px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+    animation:popupShow .25s ease;
+}
+
+.result-close{
+
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    width:34px;
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f3f3f3;
+
+    cursor:pointer;
+
+    font-size:18px;
+    font-weight:bold;
+}
+
+.result-popup h2{
+
+    margin-top:8px;
+
+    color:#ff8a00;
+
+    font-size:28px;
+}
+
+.result-subtitle{
+
+    margin:8px 0 22px;
+
+    color:#666;
+
+    font-size:16px;
+}
+
+.result-item{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 14px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    background:#f8f8f8;
+
+    font-size:17px;
+}
+
+.result-item strong{
+
+    color:#169494;
+}
+
+.next-section-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#FFA726,#FB8C00);
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.next-section-btn:hover{
+
+    transform:translateY(-2px);
+}
+
+@keyframes popupShow{
+
+    from{
+        transform:scale(.85);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }

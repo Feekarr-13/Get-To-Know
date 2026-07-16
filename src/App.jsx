@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Splash from "./Pages/Splash";
@@ -12,23 +12,97 @@ import Score from "./Pages/Score";
 
 import AudioManager from "./utils/AudioManager";
 
+import usePWAInstall from "./hooks/usePWAInstall";
+import InstallPopup from "./components/InstallPopup";
+
 export default function App() {
 
+  const { isInstallable, installApp } = usePWAInstall();
+
+  const [showInstallPopup, setShowInstallPopup] = useState(false);
+
   useEffect(() => {
-    // Nanti kita panggil backsound di sini
     // AudioManager.play();
   }, []);
 
+  // Popup hanya muncul sekali
+  useEffect(() => {
+
+    const nextShow = localStorage.getItem(
+        "install-next-show"
+    );
+
+    if (
+
+        isInstallable &&
+
+        (!nextShow || Date.now() > Number(nextShow))
+
+    ) {
+
+        setShowInstallPopup(true);
+
+    }
+
+}, [isInstallable]);
+
+    const handleCloseInstall = () => {
+
+      setShowInstallPopup(false);
+
+      const nextShow = Date.now() + (3 * 24 * 60 * 60 * 1000);
+
+      localStorage.setItem(
+          "install-next-show",
+          nextShow
+      );
+
+  };
+
+  const handleInstall = async () => {
+
+    await installApp();
+
+    setShowInstallPopup(false);
+
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={<Splash />} />
-      <Route path="/start" element={<Start />} />
-      <Route path="/menu" element={<Menu />} />
-      <Route path="/section1" element={<Section1 />} />
-      <Route path="/section2" element={<Section2 />} />
-      <Route path="/section3" element={<Section3 />} />
-      <Route path="/section4" element={<Section4 />} />
-      <Route path="/score" element={<Score />} />
-    </Routes>
+
+    <>
+
+      <Routes>
+
+        <Route path="/" element={<Splash />} />
+
+        <Route path="/start" element={<Start />} />
+
+        <Route path="/menu" element={<Menu />} />
+
+        <Route path="/section1" element={<Section1 />} />
+
+        <Route path="/section2" element={<Section2 />} />
+
+        <Route path="/section3" element={<Section3 />} />
+
+        <Route path="/section4" element={<Section4 />} />
+
+        <Route path="/score" element={<Score />} />
+
+      </Routes>
+
+      <InstallPopup
+
+        open={showInstallPopup}
+
+        onClose={handleCloseInstall}
+
+        onInstall={handleInstall}
+
+      />
+
+    </>
+
   );
+
 }

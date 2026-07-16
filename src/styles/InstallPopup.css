@@ -1,0 +1,279 @@
+/* ===========================
+   INSTALL POPUP
+=========================== */
+
+.install-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    animation:fadeIn .25s ease;
+
+}
+
+/* ===========================
+   POPUP
+=========================== */
+
+.install-popup{
+
+    width:90%;
+
+    max-width:360px;
+
+    background:#ffffff;
+
+    border-radius:28px;
+
+    padding:28px 24px;
+
+    text-align:center;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.25);
+
+    animation:popupShow .3s ease;
+
+}
+.install-close{
+
+    position:absolute;
+
+    top:14px;
+
+    right:16px;
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f2f2f2;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+.install-popup{
+
+    position:relative;
+
+}
+/* ===========================
+   LOGO
+=========================== */
+
+.install-logo{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    margin-bottom:18px;
+
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.install-title{
+
+    margin:0;
+
+    font-size:26px;
+
+    font-weight:800;
+
+    color:#18AFAF;
+
+}
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+
+.install-desc{
+
+    margin-top:16px;
+
+    color:#666;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.install-actions{
+
+    margin-top:26px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.install-btn{
+
+    width:100%;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#18B5B5;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.install-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:#0FA5A5;
+
+}
+
+.later-btn{
+
+    width:100%;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#ECECEC;
+
+    color:#555;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.later-btn:hover{
+
+    background:#DDDDDD;
+
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes popupShow{
+
+    from{
+
+        transform:scale(.85);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:480px){
+
+    .install-popup{
+
+        width:92%;
+
+        padding:24px 18px;
+
+    }
+
+    .install-logo{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    .install-title{
+
+        font-size:22px;
+
+    }
+
+    .install-desc{
+
+        font-size:14px;
+
+    }
+
+}

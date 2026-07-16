@@ -42,7 +42,7 @@ export default function InstallPopup({
                 {/* Logo */}
 
                 <img
-                    src="/logo.png"
+                    src="/logo2.png"
                     alt="Get To Know"
                     className="install-logo"
                 />

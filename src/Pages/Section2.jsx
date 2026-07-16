@@ -443,14 +443,41 @@ export default function Section2() {
 
   const goHome = () => navigate("/menu");
 
-  const playFinishAudio = () => {
-    const audio = new Audio("/audio/yeay.mp3");
+  // ================= SUARA BENAR / SALAH =================
+
+  const playSfx = (type) => {
+
+    let src = "";
+
+    if (type === "success") {
+      src = "/audio/correct.mp3";
+    }
+
+    if (type === "error") {
+      src = "/audio/wrong_5.mp3";
+    }
+
+    if (!src) return;
+
+    const audio = new Audio(src);
 
     audio.volume = 1;
 
     audio.play().catch(() => {});
+
   };
 
+  // ================= SUARA FINISH =================
+
+    const playFinishAudio = () => {
+
+      const audio = new Audio("/audio/yeay.mp3");
+
+      audio.volume = 1;
+
+      audio.play().catch(() => {});
+
+    };
     const handleNext = () => {
     if (!isLastQuestion) {
 
@@ -489,18 +516,22 @@ export default function Section2() {
 
     if (isCorrect) {
 
-    setCorrectCount((prev)=>prev+1);
+      playSfx("success");   // 🔊 suara benar
 
-    setPopup({
-        type:"success"
-    });
+      setCorrectCount((prev) => prev + 1);
 
-    }else{
+      setPopup({
+          type: "success"
+      });
 
-        setWrongCount((prev)=>prev+1);
+    } else {
+
+        playSfx("error");     // 🔊 suara salah
+
+        setWrongCount((prev) => prev + 1);
 
         setPopup({
-            type:"error"
+            type: "error"
         });
 
     }

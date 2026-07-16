@@ -460,7 +460,7 @@ const boardStyle = {
             className="section3-check-btn"
             onClick={handleCheck}
           >
-            Periksa
+            Chek Answer
           </button>
         )}
 

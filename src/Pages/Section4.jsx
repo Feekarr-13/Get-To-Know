@@ -412,13 +412,7 @@ export default function Section4() {
 
             </div>
 
-            {/* Theme */}
-
-            <h1 className="section4-theme-title">
-
-              {currentTheme.title}
-
-            </h1>
+        
 
             {/* Question */}
 

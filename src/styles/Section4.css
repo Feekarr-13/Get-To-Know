@@ -358,6 +358,8 @@
 
 .section4-theme-title{
 
+    display:none;
+
     text-align:center;
 
     font-size:26px;

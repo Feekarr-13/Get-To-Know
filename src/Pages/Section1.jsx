@@ -162,7 +162,7 @@ const BASE_LEFT_WORDS = [
   // ================= DAILY ACTIVITIES =================
   { id: "wake", text: "Wake Up", audioSrc: "/audio/wake up.mp3" },
   { id: "bath", text: "Take a bath", audioSrc: "/audio/bath.mp3" },
-  { id: "breakfast", text: "Have breakfast", audioSrc: "/audio/breakfast.mp3" },
+  { id: "breakfast", text: "breakfast", audioSrc: "/audio/breakfast.mp3" },
   { id: "goschool", text: "Go to school", audioSrc: "/audio/school.mp3" },
   { id: "study", text: "Study", audioSrc: "/audio/study.mp3" },
 

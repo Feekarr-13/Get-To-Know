@@ -195,7 +195,7 @@ const BASE_LEFT_WORDS = [
   { id: "hot", text: "Hot", audioSrc: "/audio/hot.mp3" },
   { id: "cold", text: "Cold", audioSrc: "/audio/cold.mp3" },
   { id: "dryseason", text: "Dry season", audioSrc: "/audio/dry season.mp3" },
-  { id: "rainyseason", text: "Rainy season", audioSrc: "/audio/rainy season.mp3" },
+  { id: "rainy season", text: "Rainy season", audioSrc: "/audio/rainy season.mp3" },
 
   // ================= FEELINGS =================
   { id: "happy", text: "Happy", audioSrc: "/audio/happy.mp3" },

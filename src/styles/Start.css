@@ -790,3 +790,141 @@ body{
 }
 
 }
+/* ===========================
+        START FOOTER
+=========================== */
+
+.start-footer{
+
+    margin-top:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.start-logos{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:10px;
+
+}
+
+.start-footer-logo{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+
+}
+
+.start-copyright{
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#4d4d4d;
+
+}
+
+.start-developed{
+
+    margin-top:2px;
+
+    font-size:11px;
+
+    color:#666;
+
+}
+/* ===========================
+        TOP LOGOS
+=========================== */
+
+.top-logos{
+
+    position:absolute;
+
+    top:28px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:1px;
+
+    z-index:20;
+
+}
+
+.top-logo{
+
+    width:46px;
+
+    height:46px;
+
+    object-fit:contain;
+
+}
+
+/* ===========================
+        COPYRIGHT
+=========================== */
+
+.copyright-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-top:18px;
+
+    z-index:5;
+
+    position:relative;
+
+}
+
+.copyright-text{
+
+    font-size:8px;
+
+    font-weight:700;
+
+    color:#285a7a;
+
+}
+
+.developer-text{
+
+    margin-top:1px;
+
+    font-size:11px;
+
+    color:#5f6d7a;
+
+}

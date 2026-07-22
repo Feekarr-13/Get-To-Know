@@ -43,8 +43,30 @@ export default function Start() {
 
       <div className="start-content">
 
+        {/* ================= LOGO ================= */}
+
+        <div className="top-logos">
+
+        <img
+            src="/images/logo-unimus.png"
+            className="top-logo"
+            alt=""
+        />
+
+        <img
+            src="/images/logo-pbi.png"
+            className="top-logo"
+            alt=""
+        />
+
+    </div>
+
+        {/* ================= TITLE ================= */}
+
         <h1 className="start-title">
+
           Welcome To <span className="highlight">....!</span>
+
         </h1>
 
         {/* ================= LOGO + MASKOT ================= */}
@@ -83,9 +105,24 @@ export default function Start() {
         <h2 className="start-subtitle">
           Get To <span>Know</span>
         </h2>
-
       </div>
+        {/* ================= COPYRIGHT ================= */}
 
+        <div className="copyright-box">
+
+         <p className="copyright-text">
+
+          © 2026 Yanet Andarasta Astari. Semua Hak Dilindungi.
+
+        </p>
+
+        <p className="developer-text">
+
+          Get To Know - Media Pembelajaran Bahasa Inggris
+
+        </p>
+
+        </div>
       {/* ================= LAND ================= */}
 
       <div className="ground">

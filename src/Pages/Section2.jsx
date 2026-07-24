@@ -213,145 +213,58 @@ const PAGE_THEMES = [
 ];
 // 5 SOAL: susun kata jadi kalimat
 const QUESTIONS = [
-  {
-    indo: "Hujan turun.",
-    words: [
-      { id: "q1-it", text: "It", value: "it" },
-      { id: "q1-is", text: "is", value: "is" },
-      { id: "q1-raining", text: "raining", value: "raining" },
-    ],
-    correctSequence: ["it", "is", "raining"],
-  },
-  {
-    indo: "Hari ini panas.",
-    words: [
-      { id: "q2-hot", text: "hot", value: "hot" },
-      { id: "q2-is", text: "is", value: "is" },
-      { id: "q2-today", text: "today", value: "today" },
-    ],
-    correctSequence: ["today", "is", "hot"],
-  },
-  {
-    indo: "Saya suka musim hujan.",
-    words: [
-      { id: "q3-rainy", text: "rainy", value: "rainy" },
-      { id: "q3-like", text: "like", value: "like" },
-      { id: "q3-i", text: "I", value: "i" },
-      { id: "q3-season", text: "season", value: "season" },
-    ],
-    correctSequence: ["i", "like", "rainy", "season"],
-  },
-  {
-    indo: "Matahari bersinar.",
-    words: [
-      { id: "q4-shining", text: "shining", value: "shining" },
-      { id: "q4-sun", text: "sun", value: "sun" },
-      { id: "q4-the", text: "the", value: "the" },
-      { id: "q4-is", text: "is", value: "is" },
-    ],
-    correctSequence: ["the", "sun", "is", "shining"],
-  },
-  {
-    indo: "Hari ini berawan.",
-    words: [
-      { id: "q5-cloudy", text: "cloudy", value: "cloudy" },
-      { id: "q5-is", text: "is", value: "is" },
-      { id: "q5-it", text: "It", value: "it" },
-    ],
-    correctSequence: ["it", "is", "cloudy"],
-  },
-  {
-    indo: "Saya senang.",
-    words: [
-      {id: "q6-happy", text: "happy", value: "happy"},
-      {id: "q6-am", text: "am", value: "am"},
-      {id: "q6-i", text: "i", value: "i"},
-    ],
-    correctSequence: ["i", "am", "Happy"],
-  },
-  {
-    indo: "Dia Sedih.",
-    words: [
-      {id: "q7-sad", text: "sad", value: "Sad"},
-      {id: "q7-she", text: "she", value: "She"},
-      {id: "q7-is", text: "is", value: "Is"},
-    ],
-    correctSequence: ["She", " Is", "Sad"],
-  },
-  {
-    indo: "Saya Lelah.",
-    words: [
-      {id: "q8-tired", text: "tired", value: "Tired"},
-      {id: "q8-am", text: "am", value: "Am"},
-      {id: "q8-i", text: "i", value: "i"},
-    ],
-    correctSequence:["i", "am", "tired"],
-  },
-  {
-    indo: "Dia Sakit.",
-    words: [
-      {id: "q9-sick", text: "sick", value: "Sick"},
-      {id: "q9-is", text: "is", value: "sick"},
-      {id: "q9-he", text: "he", value: "He"},
-    ],
-    correctSequence: ["He", "is", "sick"],
-  },
-  {
-    indo: "Saya baik-baik saja.",
-    words: [
-      {id: "q10-fine", text: "fine", value: "Fine"},
-      {id: "q10-am", text: "am", value: "am"},
-      {id: "q10-i", text: "i", value: "i"},
-    ],
-    correctSequence: ["i", "am", "fine"]
-  }
-  ,
+
+  // ================= DAILY ACTIVITIES =================
+
   {
     indo: "Saya bangun pagi.",
     words: [
-      { id: "q11-up", text: "up", value: "up" },
-      { id: "q11-get", text: "get", value: "get" },
-      { id: "q11-i", text: "I", value: "i" },
+      { id: "q1-up", text: "up", value: "up" },
+      { id: "q1-get", text: "get", value: "get" },
+      { id: "q1-i", text: "I", value: "i" },
     ],
     correctSequence: ["i", "get", "up"],
   },
+
+  {
+    indo: "Saya mandi.",
+    words: [
+      { id: "q2-take", text: "take", value: "take" },
+      { id: "q2-bath", text: "a bath", value: "a bath" },
+      { id: "q2-i", text: "I", value: "i" },
+    ],
+    correctSequence: ["i", "take", "a bath"],
+  },
+
   {
     indo: "Saya sarapan.",
     words: [
-      { id: "q12-have", text: "have", value: "have" },
-      { id: "q12-i", text: "I", value: "i" },
-      { id: "q12-breakfast", text: "breakfast", value: "breakfast" },
+      { id: "q3-have", text: "have", value: "have" },
+      { id: "q3-breakfast", text: "breakfast", value: "breakfast" },
+      { id: "q3-i", text: "I", value: "i" },
     ],
     correctSequence: ["i", "have", "breakfast"],
   },
+
   {
     indo: "Saya pergi ke sekolah.",
     words: [
-      { id: "q13-go", text: "go", value: "go" },
-      { id: "q13-i", text: "I", value: "i" },
-      { id: "q13-school", text: "school", value: "school" },
-      { id: "q13-to", text: "to", value: "to" },
+      { id: "q4-go", text: "go", value: "go" },
+      { id: "q4-to", text: "to", value: "to" },
+      { id: "q4-school", text: "school", value: "school" },
+      { id: "q4-i", text: "I", value: "i" },
     ],
     correctSequence: ["i", "go", "to", "school"],
   },
+
   {
     indo: "Saya belajar bahasa Inggris.",
     words: [
-      { id: "q14-english", text: "English", value: "english" },
-      { id: "q14-study", text: "study", value: "study" },
-      { id: "q14-i", text: "I", value: "i" },
+      { id: "q5-study", text: "study", value: "study" },
+      { id: "q5-english", text: "English", value: "english" },
+      { id: "q5-i", text: "I", value: "i" },
     ],
     correctSequence: ["i", "study", "english"],
-  },
-  {
-    indo: "Saya tidur malam.",
-    words: [
-      { id: "q15-at", text: "at", value: "at" },
-      { id: "q15-i", text: "I", value: "i" },
-      { id: "q15-night", text: "night", value: "night" },
-      { id: "q15-sleep", text: "sleep", value: "sleep" },
-    ],
-    correctSequence: ["i", "sleep", "at", "night"],
   },
 
   // ================= SCHOOL =================
@@ -359,51 +272,161 @@ const QUESTIONS = [
   {
     indo: "Saya di sekolah.",
     words: [
-      { id: "q16-at", text: "at", value: "at" },
-      { id: "q16-school", text: "school", value: "school" },
-      { id: "q16-am", text: "am", value: "am" },
-      { id: "q16-i", text: "I", value: "i" },
+      { id: "q6-i", text: "I", value: "i" },
+      { id: "q6-am", text: "am", value: "am" },
+      { id: "q6-at", text: "at", value: "at" },
+      { id: "q6-school", text: "school", value: "school" },
     ],
     correctSequence: ["i", "am", "at", "school"],
   },
+
+  {
+    indo: "Ini ruang kelasku.",
+    words: [
+      { id: "q7-this", text: "This", value: "this" },
+      { id: "q7-is", text: "is", value: "is" },
+      { id: "q7-my", text: "my", value: "my" },
+      { id: "q7-classroom", text: "classroom", value: "classroom" },
+    ],
+    correctSequence: ["this", "is", "my", "classroom"],
+  },
+
   {
     indo: "Saya suka matematika.",
     words: [
-      { id: "q17-like", text: "like", value: "like" },
-      { id: "q17-math", text: "math", value: "math" },
-      { id: "q17-i", text: "I", value: "i" },
+      { id: "q8-i", text: "I", value: "i" },
+      { id: "q8-like", text: "like", value: "like" },
+      { id: "q8-math", text: "math", value: "math" },
     ],
     correctSequence: ["i", "like", "math"],
   },
-  {
-    indo: "Ini pensilku.",
-    words: [
-      { id: "q18-this", text: "this", value: "this" },
-      { id: "q18-pencil", text: "pencil", value: "pencil" },
-      { id: "q18-my", text: "my", value: "my" },
-      { id: "q18-is", text: "is", value: "is" },
-    ],
-    correctSequence: ["this", "is", "my", "pencil"],
-  },
-  {
-    indo: "Guru saya baik.",
-    words: [
-      { id: "q19-my", text: "my", value: "my" },
-      { id: "q19-is", text: "is", value: "is" },
-      { id: "q19-teacher", text: "teacher", value: "teacher" },
-      { id: "q19-good", text: "good", value: "good" },
-    ],
-    correctSequence: ["my", "teacher", "is", "good"],
-  },
+
   {
     indo: "Kami belajar bahasa Inggris.",
     words: [
-      { id: "q20-study", text: "study", value: "study" },
-      { id: "q20-we", text: "we", value: "we" },
-      { id: "q20-english", text: "English", value: "english" },
+      { id: "q9-we", text: "We", value: "we" },
+      { id: "q9-study", text: "study", value: "study" },
+      { id: "q9-english", text: "English", value: "english" },
     ],
     correctSequence: ["we", "study", "english"],
-  }
+  },
+
+  {
+    indo: "Kami bermain di lapangan.",
+    words: [
+      { id: "q10-we", text: "We", value: "we" },
+      { id: "q10-play", text: "play", value: "play" },
+      { id: "q10-playground", text: "playground", value: "playground" },
+      { id: "q10-in", text: "in", value: "in" },
+      { id: "q10-the", text: "the", value: "the" },
+    ],
+    correctSequence: ["we", "play", "in", "the", "playground"],
+  },
+
+  // ================= WEATHER =================
+
+  {
+    indo: "Hari ini cerah.",
+    words: [
+      { id: "q11-it", text: "It", value: "it" },
+      { id: "q11-is", text: "is", value: "is" },
+      { id: "q11-sunny", text: "sunny", value: "sunny" },
+    ],
+    correctSequence: ["it", "is", "sunny"],
+  },
+
+  {
+    indo: "Hujan turun.",
+    words: [
+      { id: "q12-it", text: "It", value: "it" },
+      { id: "q12-is", text: "is", value: "is" },
+      { id: "q12-raining", text: "raining", value: "raining" },
+    ],
+    correctSequence: ["it", "is", "raining"],
+  },
+
+  {
+    indo: "Hari ini berawan.",
+    words: [
+      { id: "q13-it", text: "It", value: "it" },
+      { id: "q13-is", text: "is", value: "is" },
+      { id: "q13-cloudy", text: "cloudy", value: "cloudy" },
+    ],
+    correctSequence: ["it", "is", "cloudy"],
+  },
+
+  {
+    indo: "Angin bertiup kencang.",
+    words: [
+      { id: "q14-it", text: "It", value: "it" },
+      { id: "q14-is", text: "is", value: "is" },
+      { id: "q14-windy", text: "windy", value: "windy" },
+    ],
+    correctSequence: ["it", "is", "windy"],
+  },
+
+  {
+    indo: "Ada badai.",
+    words: [
+      { id: "q15-there", text: "There", value: "there" },
+      { id: "q15-is", text: "is", value: "is" },
+      { id: "q15-storm", text: "a storm", value: "a storm" },
+    ],
+    correctSequence: ["there", "is", "a storm"],
+  },
+
+  // ================= FEELINGS =================
+
+  {
+    indo: "Saya senang.",
+    words: [
+      { id: "q16-i", text: "I", value: "i" },
+      { id: "q16-am", text: "am", value: "am" },
+      { id: "q16-happy", text: "happy", value: "happy" },
+    ],
+    correctSequence: ["i", "am", "happy"],
+  },
+
+  {
+    indo: "Dia sedih.",
+    words: [
+      { id: "q17-she", text: "She", value: "she" },
+      { id: "q17-is", text: "is", value: "is" },
+      { id: "q17-sad", text: "sad", value: "sad" },
+    ],
+    correctSequence: ["she", "is", "sad"],
+  },
+
+  {
+    indo: "Dia marah.",
+    words: [
+      { id: "q18-he", text: "He", value: "he" },
+      { id: "q18-is", text: "is", value: "is" },
+      { id: "q18-angry", text: "angry", value: "angry" },
+    ],
+    correctSequence: ["he", "is", "angry"],
+  },
+
+  {
+    indo: "Dia sakit.",
+    words: [
+      { id: "q19-he", text: "He", value: "he" },
+      { id: "q19-is", text: "is", value: "is" },
+      { id: "q19-sick", text: "sick", value: "sick" },
+    ],
+    correctSequence: ["he", "is", "sick"],
+  },
+
+  {
+    indo: "Saya lelah.",
+    words: [
+      { id: "q20-i", text: "I", value: "i" },
+      { id: "q20-am", text: "am", value: "am" },
+      { id: "q20-tired", text: "tired", value: "tired" },
+    ],
+    correctSequence: ["i", "am", "tired"],
+  },
+
 ];
 
 

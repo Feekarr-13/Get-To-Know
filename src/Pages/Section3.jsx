@@ -43,7 +43,7 @@ const QUESTIONS = [
 
   // Slide 4
   {
-    question: "It is windy.",
+    question: "the wind is strong.",
     sub: "Apa arti kalimat di atas?",
     options: [
       { id: "wind", text: "Anginnya kencang", isCorrect: true },
@@ -132,7 +132,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide1.png",
-    mascot: "/mascot3/sunny.png",
     board: "blue",
   },
 
@@ -141,7 +140,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide2.png",
-    mascot: "/mascot3/rainy.png",
     board: "navy",
   },
 
@@ -150,7 +148,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide3.png",
-    mascot: "/mascot3/cloudy.png",
     board: "green",
   },
 
@@ -159,7 +156,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide4.png",
-    mascot: "/mascot3/windy.png",
     board: "cyan",
   },
 
@@ -168,7 +164,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide5.png",
-    mascot: "/mascot3/stormy.png",
     board: "purple",
   },
 
@@ -177,7 +172,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide6.png",
-    mascot: "/mascot3/snowy.png",
     board: "orange",
   },
 
@@ -186,7 +180,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide7.png",
-    mascot: "/mascot3/spring.png",
     board: "pink",
   },
 
@@ -195,7 +188,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide8.png",
-    mascot: "/mascot3/summer.png",
     board: "yellow",
   },
 
@@ -204,7 +196,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide9.png",
-    mascot: "/mascot3/autumn.png",
     board: "orange",
   },
 
@@ -213,7 +204,6 @@ const PAGE_THEMES = [
     title: "Weather & Seasons",
     subtitle: "(Cuaca dan Musim)",
     background: "/background3/slide10.png",
-    mascot: "/mascot3/night.png",
     board: "navy",
   },
 ];
@@ -401,12 +391,6 @@ const boardStyle = {
 
           <p>{currentTheme.subtitle}</p>
         </div>
-
-        <img
-          src={currentTheme.mascot}
-          alt="Mascot"
-          className="header-mascot"
-        />
 
       </header>
 

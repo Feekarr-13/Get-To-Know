@@ -14,11 +14,13 @@ import "../styles/Section4.css";
 // ======================================================
 
 const QUESTIONS = [
-  {
+    {
     title: "Happy",
     indo: "Aku senang karena mendapat hadiah.",
     enPrefix: "I am",
     enSuffix: "because I got a gift.",
+    indoPrefix: "Aku",
+    indoSuffix: "karena mendapat hadiah.",
     answer: "happy",
   },
 
@@ -27,6 +29,8 @@ const QUESTIONS = [
     indo: "Aku sedih ketika merindukan temanku.",
     enPrefix: "I feel",
     enSuffix: "when I miss my friend.",
+    indoPrefix: "Aku merasa",
+    indoSuffix: "ketika merindukan temanku.",
     answer: "sad",
   },
 
@@ -35,6 +39,8 @@ const QUESTIONS = [
     indo: "Dia marah karena kehilangan mainannya.",
     enPrefix: "He is",
     enSuffix: "because he lost his toy.",
+    indoPrefix: "Dia",
+    indoSuffix: "karena kehilangan mainannya.",
     answer: "angry",
   },
 
@@ -43,6 +49,8 @@ const QUESTIONS = [
     indo: "Dia sakit dan harus beristirahat.",
     enPrefix: "She is",
     enSuffix: "and needs to rest.",
+    indoPrefix: "Dia",
+    indoSuffix: "dan harus beristirahat.",
     answer: "sick",
   },
 
@@ -51,7 +59,48 @@ const QUESTIONS = [
     indo: "Aku lelah setelah seharian beraktivitas.",
     enPrefix: "I am",
     enSuffix: "after a long day.",
+    indoPrefix: "Aku",
+    indoSuffix: "setelah seharian beraktivitas.",
     answer: "tired",
+  },
+    {
+    title: "Classroom",
+    indo: "Kami belajar di ________.",
+    enPrefix: "We study in the",
+    enSuffix: ".",
+    answer: "classroom",
+  },
+
+  {
+    title: "Library",
+    indo: "Saya meminjam buku dari ________.",
+    enPrefix: "I borrow books from the",
+    enSuffix: ".",
+    answer: "library",
+  },
+
+  {
+    title: "School",
+    indo: "Setiap pagi, saya pergi ke ________ bersama teman-teman.",
+    enPrefix: "Every morning, I go to",
+    enSuffix: "with my friends.",
+    answer: "school",
+  },
+
+  {
+    title: "Student",
+    indo: "Saya adalah seorang ________ di SMP Negeri 2 Sirampog.",
+    enPrefix: "I am a",
+    enSuffix: "at SMP Negeri 2 Sirampog.",
+    answer: "student",
+  },
+
+  {
+    title: "Canteen",
+    indo: "Kami membeli makanan di ________.",
+    enPrefix: "We buy food in the",
+    enSuffix: ".",
+    answer: "canteen",
   },
 ];
 
@@ -93,6 +142,40 @@ const PAGE_THEMES = [
     background: "/background4/slide5.png",
     mascot: "/mascot4/tired.png",
     board: "purple",
+  },
+  {
+  title: "Classroom",
+  background: "/background4/slide6.png",
+  mascot: "/mascot4/classroom.png",
+  board: "orange",
+  },
+
+  {
+    title: "Library",
+    background: "/background4/slide7.png",
+    mascot: "/mascot4/library.png",
+    board: "blue",
+  },
+
+  {
+    title: "School",
+    background: "/background4/slide8.png",
+    mascot: "/mascot4/school.png",
+    board: "green",
+  },
+
+  {
+    title: "Student",
+    background: "/background4/slide9.png",
+    mascot: "/mascot4/student.png",
+    board: "pink",
+  },
+
+  {
+    title: "Canteen",
+    background: "/background4/slide10.png",
+    mascot: "/mascot4/canteen.png",
+    board: "cyan",
   },
 ];
 

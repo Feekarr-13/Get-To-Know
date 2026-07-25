@@ -14,92 +14,123 @@ import "../styles/Section4.css";
 // ======================================================
 
 const QUESTIONS = [
-    {
+  {
     title: "Happy",
-    indo: "Aku senang karena mendapat hadiah.",
     enPrefix: "I am",
     enSuffix: "because I got a gift.",
+
     indoPrefix: "Aku",
+    indoAnswer: "senang",
     indoSuffix: "karena mendapat hadiah.",
+
     answer: "happy",
   },
 
   {
     title: "Sad",
-    indo: "Aku sedih ketika merindukan temanku.",
     enPrefix: "I feel",
     enSuffix: "when I miss my friend.",
+
     indoPrefix: "Aku merasa",
+    indoAnswer: "sedih",
     indoSuffix: "ketika merindukan temanku.",
+
     answer: "sad",
   },
 
   {
     title: "Angry",
-    indo: "Dia marah karena kehilangan mainannya.",
     enPrefix: "He is",
     enSuffix: "because he lost his toy.",
+
     indoPrefix: "Dia",
+    indoAnswer: "marah",
     indoSuffix: "karena kehilangan mainannya.",
+
     answer: "angry",
   },
 
   {
     title: "Sick",
-    indo: "Dia sakit dan harus beristirahat.",
     enPrefix: "She is",
     enSuffix: "and needs to rest.",
+
     indoPrefix: "Dia",
+    indoAnswer: "sakit",
     indoSuffix: "dan harus beristirahat.",
+
     answer: "sick",
   },
 
   {
     title: "Tired",
-    indo: "Aku lelah setelah seharian beraktivitas.",
     enPrefix: "I am",
     enSuffix: "after a long day.",
+
     indoPrefix: "Aku",
+    indoAnswer: "lelah",
     indoSuffix: "setelah seharian beraktivitas.",
+
     answer: "tired",
   },
-    {
+
+  {
     title: "Classroom",
-    indo: "Kami belajar di ________.",
     enPrefix: "We study in the",
     enSuffix: ".",
+
+    indoPrefix: "Kami belajar di",
+    indoAnswer: "ruang kelas",
+    indoSuffix: ".",
+
     answer: "classroom",
   },
 
   {
     title: "Library",
-    indo: "Saya meminjam buku dari ________.",
     enPrefix: "I borrow books from the",
     enSuffix: ".",
+
+    indoPrefix: "Saya meminjam buku dari",
+    indoAnswer: "perpustakaan",
+    indoSuffix: ".",
+
     answer: "library",
   },
 
   {
     title: "School",
-    indo: "Setiap pagi, saya pergi ke ________ bersama teman-teman.",
     enPrefix: "Every morning, I go to",
     enSuffix: "with my friends.",
+
+    indoPrefix: "Setiap pagi saya pergi ke",
+    indoAnswer: "sekolah",
+    indoSuffix: "bersama teman-teman.",
+
     answer: "school",
   },
 
   {
     title: "Student",
-    indo: "Saya adalah seorang ________ di SMP Negeri 2 Sirampog.",
     enPrefix: "I am a",
     enSuffix: "at SMP Negeri 2 Sirampog.",
+
+    indoPrefix: "Saya adalah seorang",
+    indoAnswer: "siswa",
+    indoSuffix: "di SMP Negeri 2 Sirampog.",
+
     answer: "student",
   },
 
   {
     title: "Canteen",
-    indo: "Kami membeli makanan di ________.",
     enPrefix: "We buy food in the",
     enSuffix: ".",
+
+    indoPrefix: "Kami membeli makanan di",
+    indoAnswer: "kantin",
+    indoSuffix: ".",
+
     answer: "canteen",
   },
 ];
@@ -501,12 +532,13 @@ export default function Section4() {
 
             <div className="section4-question-card">
 
-              <p className="section4-question-id">
-
-                {currentQuestion.indo}
-
-              </p>
-
+            <p className="section4-question-id">
+              {currentQuestion.indoPrefix}{" "}
+              <span className="indo-answer">
+                {currentQuestion.indoAnswer}
+              </span>{" "}
+              {currentQuestion.indoSuffix}
+            </p>
             </div>
                         {/* ================= ANSWER BOX ================= */}
 
